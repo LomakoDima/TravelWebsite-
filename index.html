@@ -4,321 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Путешествия мечты</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: url("image.jpg") no-repeat center center/cover fixed;
-        color: white;
-        text-align: center;
-      }
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.5);
-        position: absolute;
-        border: 2px solid #fff;
-        top: 0;
-        width: 100%;
-      }
-      .logo {
-        font-size: 1.5em;
-        font-weight: bold;
-        margin-left: 60px;
-      }
-      .menu {
-        display: flex;
-        justify-content: center; 
-        align-items: center;
-        gap: 30px; 
-        margin-right: 30px;
-      }
-
-      .content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-      }
-      .content h1 {
-        font-size: 3em;
-        margin: 0;
-      }
-      .content p {
-        font-size: 1.5em;
-      }
-      .travel {
-        background: #ff6600;
-        color: white;
-        padding: 15px 30px;
-        font-size: 1.2em;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: 0.3s;
-      }
-      .travel:hover {
-        background: #ff4500;
-      }
-
-      .type--A {
-        --line_color: #555555;
-        --back_color: #ffecf6;
-      }
-      .type--B {
-        --line_color: #1b1919;
-        --back_color: #e9ecff;
-      }
-      .type--C {
-        --line_color: #00135c;
-        --back_color: #defffa;
-      }
-      .button {
-        position: relative;
-        z-index: 0;
-        width: 240px;
-        height: 56px;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: bold;
-        color: var(--line_color);
-        letter-spacing: 2px;
-        transition: all 0.3s ease;
-      }
-      .button__text {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-      }
-      .button::before,
-      .button::after,
-      .button__text::before,
-      .button__text::after {
-        content: "";
-        position: absolute;
-        height: 3px;
-        border-radius: 2px;
-        background: var(--line_color);
-        transition: all 0.5s ease;
-      }
-      .button::before {
-        top: 0;
-        left: 54px;
-        width: calc(100% - 56px * 2 - 16px);
-      }
-      .button::after {
-        top: 0;
-        right: 54px;
-        width: 8px;
-      }
-      .button__text::before {
-        bottom: 0;
-        right: 54px;
-        width: calc(100% - 56px * 2 - 16px);
-      }
-      .button__text::after {
-        bottom: 0;
-        left: 54px;
-        width: 8px;
-      }
-      .button__line {
-        position: absolute;
-        top: 0;
-        width: 56px;
-        height: 100%;
-        overflow: hidden;
-      }
-      .button__line::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        width: 150%;
-        height: 100%;
-        box-sizing: border-box;
-        border-radius: 300px;
-        border: solid 3px var(--line_color);
-      }
-      .button__line:nth-child(1),
-      .button__line:nth-child(1)::before {
-        left: 0;
-      }
-      .button__line:nth-child(2),
-      .button__line:nth-child(2)::before {
-        right: 0;
-      }
-      .button:hover {
-        letter-spacing: 6px;
-      }
-      .button:hover::before,
-      .button:hover .button__text::before {
-        width: 8px;
-      }
-      .button:hover::after,
-      .button:hover .button__text::after {
-        width: calc(100% - 56px * 2 - 16px);
-      }
-      .button__drow1,
-      .button__drow2 {
-        position: absolute;
-        z-index: -1;
-        border-radius: 16px;
-        transform-origin: 16px 16px;
-      }
-      .button__drow1 {
-        top: -16px;
-        left: 40px;
-        width: 32px;
-        height: 0;
-        transform: rotate(30deg);
-      }
-      .button__drow2 {
-        top: 44px;
-        left: 77px;
-        width: 32px;
-        height: 0;
-        transform: rotate(-127deg);
-      }
-      .button__drow1::before,
-      .button__drow1::after,
-      .button__drow2::before,
-      .button__drow2::after {
-        content: "";
-        position: absolute;
-      }
-      .button__drow1::before {
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 32px;
-        border-radius: 16px;
-        transform-origin: 16px 16px;
-        transform: rotate(-60deg);
-      }
-      .button__drow1::after {
-        top: -10px;
-        left: 45px;
-        width: 0;
-        height: 32px;
-        border-radius: 16px;
-        transform-origin: 16px 16px;
-        transform: rotate(69deg);
-      }
-      .button__drow2::before {
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 32px;
-        border-radius: 16px;
-        transform-origin: 16px 16px;
-        transform: rotate(-146deg);
-      }
-      .button__drow2::after {
-        bottom: 26px;
-        left: -40px;
-        width: 0;
-        height: 32px;
-        border-radius: 16px;
-        transform-origin: 16px 16px;
-        transform: rotate(-262deg);
-      }
-      .button__drow1,
-      .button__drow1::before,
-      .button__drow1::after,
-      .button__drow2,
-      .button__drow2::before,
-      .button__drow2::after {
-        background: var(--back_color);
-      }
-      .button:hover .button__drow1 {
-        animation: drow1 ease-in 0.06s;
-        animation-fill-mode: forwards;
-      }
-      .button:hover .button__drow1::before {
-        animation: drow2 linear 0.08s 0.06s;
-        animation-fill-mode: forwards;
-      }
-      .button:hover .button__drow1::after {
-        animation: drow3 linear 0.03s 0.14s;
-        animation-fill-mode: forwards;
-      }
-      .button:hover .button__drow2 {
-        animation: drow4 linear 0.06s 0.2s;
-        animation-fill-mode: forwards;
-      }
-      .button:hover .button__drow2::before {
-        animation: drow3 linear 0.03s 0.26s;
-        animation-fill-mode: forwards;
-      }
-      .button:hover .button__drow2::after {
-        animation: drow5 linear 0.06s 0.32s;
-        animation-fill-mode: forwards;
-      }
-      @keyframes drow1 {
-        0% {
-          height: 0;
-        }
-        100% {
-          height: 100px;
-        }
-      }
-      @keyframes drow2 {
-        0% {
-          width: 0;
-          opacity: 0;
-        }
-        10% {
-          opacity: 0;
-        }
-        11% {
-          opacity: 1;
-        }
-        100% {
-          width: 120px;
-        }
-      }
-      @keyframes drow3 {
-        0% {
-          width: 0;
-        }
-        100% {
-          width: 80px;
-        }
-      }
-      @keyframes drow4 {
-        0% {
-          height: 0;
-        }
-        100% {
-          height: 120px;
-        }
-      }
-      @keyframes drow5 {
-        0% {
-          width: 0;
-        }
-        100% {
-          width: 124px;
-        }
-      }
-
-      .container {
-        width: 100%;
-        height: auto;
-        display: flex;
-
-        justify-content: center;
-        align-items: center;
-      }
-      .button:not(:last-child) {
-        margin-bottom: 64px;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav>
@@ -367,8 +53,127 @@
     </nav>
     <div class="content">
       <h1>Исследуй мир</h1>
-      <p>Открой новые горизонты и незабываемые впечатления</p>
+      <p>
+        <b>Открой</b> <i>новые горизонты</i> и <u>незабываемые впечатления</u>
+      </p>
       <button class="travel">Начать путешествие</button>
     </div>
+
+    <div class="list-container">
+      <ul>
+        <li>🏖️ Пляжный отдых (Мальдивы, Таиланд, Бали)</li>
+        <li>🏔️ Горные походы (Алтай, Кавказ, Гималаи)</li>
+        <li>🏛️ Культурные экскурсии (Париж, Рим, Прага)</li>
+        <li>🛶 Экспедиции (Антарктида, Амазонка, Африка)</li>
+        <li>🚀 Космический туризм (в разработке 😃)</li>
+      </ul>
+
+      <ol>
+        <li>Выберите маршрут</li>
+        <li>Забронируйте тур</li>
+        <li>Отправляйтесь в незабываемое приключение!</li>
+      </ol>
+    </div>
+
+    <h2 id="routes">Популярные маршруты</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Маршрут</th>
+            <th>Продолжительность</th>
+            <th>Стоимость</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Мальдивы</td>
+            <td>7 дней</td>
+            <td>$1500</td>
+          </tr>
+          <tr>
+            <td>Горный Алтай</td>
+            <td>10 дней</td>
+            <td>$1200</td>
+          </tr>
+          <tr>
+            <td>Париж</td>
+            <td>5 дней</td>
+            <td>$2000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="marquee-container">
+      <marquee behavior="scroll" direction="left">
+        ✈️ Открой для себя новые маршруты! 🌍 Горные походы, пляжный отдых и
+        культурные экскурсии ждут тебя! 📍 Забронируй тур уже сейчас! 🏝️⛰️🏛️
+      </marquee>
+    </div>
+
+    <div id="about" class="about">
+      <h2>О нас</h2>
+      <p>
+        Мы — команда опытных путешественников, организующих незабываемые туры по
+        всему миру.
+      </p>
+      <p>
+        Наша миссия — помочь вам открыть самые красивые уголки планеты,
+        наслаждаясь комфортом и безопасностью.
+      </p>
+    </div>
+
+    <!--<header class="slider">
+      <div class="slide fade"><img src="img1.jpg" alt="Мальдивы" /></div>
+      <div class="slide fade"><img src="img2.jpg" alt="Горный Алтай" /></div>
+      <div class="slide fade"><img src="img3.jpg" alt="Париж" /></div>
+    </header>
+
+    <section id="gallery">
+      <h2>Фотогалерея</h2>
+      <div class="gallery">
+        <img src="img4.jpg" alt="Бали" />
+        <img src="img5.jpg" alt="Рим" />
+        <img src="img6.jpg" alt="Гималаи" />
+      </div>
+    </section>
+
+    <section id="tours">
+      <h2>Туры</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="img7.jpg" />
+          <h3>Бали</h3>
+          <p>Рай для серферов и любителей пляжного отдыха.</p>
+        </div>
+        <div class="card">
+          <img src="img8.jpg" />
+          <h3>Париж</h3>
+          <p>
+            Город любви и искусства, полон исторических достопримечательностей.
+          </p>
+        </div>
+        <div class="card">
+          <img src="img9.jpg" />
+          <h3>Гималаи</h3>
+          <p>Идеальное место для альпинистов и искателей приключений.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Свяжитесь с нами</h2>
+      <form>
+        <input type="text" placeholder="Ваше имя" required />
+        <input type="email" placeholder="Ваш email" required />
+        <textarea placeholder="Ваше сообщение" required></textarea>
+        <button type="submit">Отправить</button>
+      </form>
+    </section>-->
+
+    <footer>
+      <p>&copy; 2025 Турбулентное путешествие. Все права защищены.</p>
+    </footer>
   </body>
 </html>
