@@ -3,177 +3,352 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Путешествия мечты</title>
+    <title>Туристическое агентство</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
   <body>
-    <nav>
-      <div class="logo">Турбулентное путешествие</div>
-      <div class="menu">
-        <!--<a href="#">Главная</a>
-        <a href="#">О нас</a>
-        <a href="#">Контакты</a>-->
-        <div class="container">
-          <a href="#" class="button type--C">
-            <div class="button__line"></div>
-            <div class="button__line"></div>
-            <span class="button__text">Главная</span>
-            <div class="button__drow1"></div>
-            <div class="button__drow2"></div>
-          </a>
-        </div>
-        <div class="container">
-          <a href="#" class="button type--C">
-            <div class="button__line"></div>
-            <div class="button__line"></div>
-            <span class="button__text">О нас</span>
-            <div class="button__drow1"></div>
-            <div class="button__drow2"></div>
-          </a>
-        </div>
-        <div class="container">
-          <a href="#" class="button type--C">
-            <div class="button__line"></div>
-            <div class="button__line"></div>
-            <span class="button__text">Маршруты</span>
-            <div class="button__drow1"></div>
-            <div class="button__drow2"></div>
-          </a>
-        </div>
-        <div class="container">
-          <a href="#" class="button type--C">
-            <div class="button__line"></div>
-            <div class="button__line"></div>
-            <span class="button__text">Контакты</span>
-            <div class="button__drow1"></div>
-            <div class="button__drow2"></div>
-          </a>
+    <header>
+      <div class="header-container">
+        <div class="logo">Турбулентное путешествие</div>
+        <div class="nav-buttons">
+          <nav>
+            <ul>
+              <li><a href="#">Главная</a></li>
+              <li><a href="#">Туры</a></li>
+              <li><a href="#">Контакты</a></li>
+              <li><a href="#">О нас</a></li>
+            </ul>
+          </nav>
+          <a href="#" class="header-button">Забронировать</a>
         </div>
       </div>
-    </nav>
-    <div class="content">
-      <h1>Исследуй мир</h1>
-      <p>
-        <b>Открой</b> <i>новые горизонты</i> и <u>незабываемые впечатления</u>
-      </p>
-      <button class="travel">Начать путешествие</button>
-    </div>
-
-    <div class="list-container">
-      <ul>
-        <li>🏖️ Пляжный отдых (Мальдивы, Таиланд, Бали)</li>
-        <li>🏔️ Горные походы (Алтай, Кавказ, Гималаи)</li>
-        <li>🏛️ Культурные экскурсии (Париж, Рим, Прага)</li>
-        <li>🛶 Экспедиции (Антарктида, Амазонка, Африка)</li>
-        <li>🚀 Космический туризм (в разработке 😃)</li>
-      </ul>
-
-      <ol>
-        <li>Выберите маршрут</li>
-        <li>Забронируйте тур</li>
-        <li>Отправляйтесь в незабываемое приключение!</li>
-      </ol>
-    </div>
-
-    <h2 id="routes">Популярные маршруты</h2>
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Маршрут</th>
-            <th>Продолжительность</th>
-            <th>Стоимость</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Мальдивы</td>
-            <td>7 дней</td>
-            <td>$1500</td>
-          </tr>
-          <tr>
-            <td>Горный Алтай</td>
-            <td>10 дней</td>
-            <td>$1200</td>
-          </tr>
-          <tr>
-            <td>Париж</td>
-            <td>5 дней</td>
-            <td>$2000</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="marquee-container">
-      <marquee behavior="scroll" direction="left">
-        ✈️ Открой для себя новые маршруты! 🌍 Горные походы, пляжный отдых и
-        культурные экскурсии ждут тебя! 📍 Забронируй тур уже сейчас! 🏝️⛰️🏛️
-      </marquee>
-    </div>
-
-    <div id="about" class="about">
-      <h2>О нас</h2>
-      <p>
-        Мы — команда опытных путешественников, организующих незабываемые туры по
-        всему миру.
-      </p>
-      <p>
-        Наша миссия — помочь вам открыть самые красивые уголки планеты,
-        наслаждаясь комфортом и безопасностью.
-      </p>
-    </div>
-
-    <!--<header class="slider">
-      <div class="slide fade"><img src="img1.jpg" alt="Мальдивы" /></div>
-      <div class="slide fade"><img src="img2.jpg" alt="Горный Алтай" /></div>
-      <div class="slide fade"><img src="img3.jpg" alt="Париж" /></div>
     </header>
 
-    <section id="gallery">
-      <h2>Фотогалерея</h2>
-      <div class="gallery">
-        <img src="img4.jpg" alt="Бали" />
-        <img src="img5.jpg" alt="Рим" />
-        <img src="img6.jpg" alt="Гималаи" />
+    <section class="home">
+      <div class="home-content">
+        <h1>Открой для себя мир</h1>
+        <p>Путешествия, которые оставят незабываемые впечатления.</p>
+        <a href="#" class="btn">Подробнее</a>
       </div>
     </section>
 
-    <section id="tours">
-      <h2>Туры</h2>
-      <div class="cards">
-        <div class="card">
-          <img src="img7.jpg" />
-          <h3>Бали</h3>
-          <p>Рай для серферов и любителей пляжного отдыха.</p>
+    <section class="steps">
+      <h2>Как это работает?</h2>
+      <p>Простой процесс в 5 шагов</p>
+      <div class="steps-container">
+        <div class="step">
+          <span class="step-number">01</span>
+          <i class="fas fa-map-marked-alt"></i>
+          <h3><b>Выберите тур</b></h3>
+          <p>Найдите <b>лучший вариант</b> на нашем сайте.</p>
         </div>
-        <div class="card">
-          <img src="img8.jpg" />
-          <h3>Париж</h3>
-          <p>
-            Город любви и искусства, полон исторических достопримечательностей.
+        <div class="step">
+          <span class="step-number">02</span>
+          <i class="fas fa-envelope"></i>
+          <h3>Оформите заявку</h3>
+          <p>Менеджер свяжется с вами и уточнит детали.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">03</span>
+          <i class="fas fa-credit-card"></i>
+          <h3>Оплатите</h3>
+          <p>Выберите удобный способ оплаты.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">04</span>
+          <i class="fas fa-file-alt"></i>
+          <h3>Получите документы</h3>
+          <p>Всё придёт вам на e-mail.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">05</span>
+          <i class="fas fa-plane"></i>
+          <h3>Наслаждайтесь отдыхом!</h3>
+          <p>Пора в путешествие!</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="cards-container">
+      <div class="tour-card">
+        <div class="card-image">
+          <img src="sokha.jpg" alt="Отель" />
+          <div class="card-icons">
+            <button class="icon-button">❤️</button>
+            <button class="icon-button">⚖️</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>Sokha Beach Resort 5 ★</h3>
+          <p class="location">Камбоджа , Сиануквиль</p>
+          <p class="rating">
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </span>
+            <span class="reviews">(19 отзывов)</span>
+          </p>
+          <p class="details">с 21.02 по 04.03 (11 ночей) | выезд из Алматы</p>
+          <p class="food">🍽️ завтрак</p>
+          <p class="price">1 369 074 ₸</p>
+          <button class="details-button">Подробнее</button>
+        </div>
+      </div>
+
+      <div class="tour-card">
+        <div class="card-image">
+          <img src="maikhao.jpg" alt="Отель" />
+          <div class="card-icons">
+            <button class="icon-button">❤️</button>
+            <button class="icon-button">⚖️</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>Maikhao Hotel Managed By Centara 4 ★</h3>
+          <p class="location">Таиланд (Тайланд) , о. Пхукет</p>
+          <p class="rating">
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </span>
+            <span class="reviews">(19 отзывов)</span>
+          </p>
+          <p class="details">с 22.02 по 03.03 (9 ночей) | выезд из Астаны</p>
+          <p class="food">🍽️ завтрак</p>
+          <p class="price">914 416 ₸</p>
+          <button class="details-button">Подробнее</button>
+        </div>
+      </div>
+
+      <div class="tour-card">
+        <div class="card-image">
+          <img src="rixos.jpg" alt="Отель" />
+          <div class="card-icons">
+            <button class="icon-button">❤️</button>
+            <button class="icon-button">⚖️</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>Rixos Downtown 5 ★</h3>
+          <p class="location">Турция , Анталия</p>
+          <p class="rating">
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </span>
+            <span class="reviews">(19 отзывов)</span>
+          </p>
+          <p class="details">с 21.04 по 27.04 (5 ночей) | выезд из Алматы</p>
+          <p class="food">🍽️ Все включено</p>
+          <p class="price">1 094 981 ₸</p>
+          <button class="details-button">Подробнее</button>
+        </div>
+      </div>
+
+      <div class="tour-card">
+        <div class="card-image">
+          <img src="baron.jpg" alt="Отель" />
+          <div class="card-icons">
+            <button class="icon-button">❤️</button>
+            <button class="icon-button">⚖️</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>Baron Palms Resort Sharm El Sheikh 5 ★</h3>
+          <p class="location">Египет, Шарм-эль-Шейх</p>
+          <p class="rating">
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </span>
+            <span class="reviews">(19 отзывов)</span>
+          </p>
+          <p class="details">с 27.03 по 02.04 (6 ночей) | Выезд из Астаны</p>
+          <p class="food">🍽️ Все включено</p>
+          <p class="price"><s>1 086 267</s> 867 264 ₸ (30%)</p>
+          <button class="details-button">Подробнее</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="booking">
+      <div class="booking-container">
+        <div class="booking-text">
+          <h2>Хотите подобрать тур быстро<br />и по самой выгодной цене?</h2>
+          <p>Оставьте заявку, и вам поможет один из наших экспертов!</p>
+          <form class="booking-form">
+            <div class="input-group">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Ваше имя" />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-phone"></i>
+              <input type="tel" placeholder="Телефон" />
+            </div>
+            <button type="submit" class="booking-btn">Оставить заявку</button>
+          </form>
+          <p class="policy">
+            Отправляя заявку, вы даете согласие на обработку персональных данных
+            и соглашаетесь с
+            <a href="#">Политикой конфиденциальности</a>.
           </p>
         </div>
-        <div class="card">
-          <img src="img9.jpg" />
-          <h3>Гималаи</h3>
-          <p>Идеальное место для альпинистов и искателей приключений.</p>
+        <div class="booking-image">
+          <img src="beach.jpg" alt="Отдых на пляже" />
         </div>
       </div>
     </section>
 
-    <section id="contact">
-      <h2>Свяжитесь с нами</h2>
-      <form>
-        <input type="text" placeholder="Ваше имя" required />
-        <input type="email" placeholder="Ваш email" required />
-        <textarea placeholder="Ваше сообщение" required></textarea>
-        <button type="submit">Отправить</button>
-      </form>
-    </section>-->
+    <section class="advantages">
+      <h2>6 аргументов, почему туристы выбирают <span>«НАС»</span></h2>
+      <div class="advantages-container">
+        <div class="advantage-item">
+          <i class="fas fa-globe"></i>
+          <p>Более 550 офисов</p>
+        </div>
+        <div class="advantage-item">
+          <i class="fas fa-plane"></i>
+          <p>Туры в 81,283 отелей мира</p>
+        </div>
+        <div class="advantage-item">
+          <i class="fas fa-headset"></i>
+          <p>Круглосуточная поддержка 24/7</p>
+        </div>
+        <div class="advantage-item">
+          <i class="fas fa-passport"></i>
+          <p>Мы точно знаем, что продаем</p>
+        </div>
+        <div class="advantage-item">
+          <i class="fas fa-chart-line"></i>
+          <p>Финансовая стабильность</p>
+        </div>
+        <div class="advantage-item">
+          <i class="fas fa-dollar-sign"></i>
+          <p>Актуальные цены в реальном времени</p>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-      <p>&copy; 2025 Турбулентное путешествие. Все права защищены.</p>
+    
+    <section class="contacts">
+      <div class="container">
+        <h2 class="contacts-title">Свяжитесь с нами</h2>
+        <p class="contacts-subtitle">Мы всегда готовы помочь вам!</p>
+        <div class="contacts-content">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <p>+7 (900) 123-45-67</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <p>info@travelworld.com</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Москва, ул. Путешествий, 12</p>
+          </div>
+        </div>
+        <button class="contacts-button">Написать нам</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Куда поехать</h3>
+          <ul>
+            <li><a href="#">Подбор тура</a></li>
+            <li><a href="#">Горящие туры</a></li>
+            <li><a href="#">Отели, гостиницы</a></li>
+            <li><a href="#">Страны, курорты</a></li>
+            <li><a href="#">Премиум отдых</a></li>
+            <li><a href="#">Где купить</a></li>
+            <li><a href="#">Туроператоры</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Туристам</h3>
+          <ul>
+            <li><a href="#">Туры в рассрочку</a></li>
+            <li><a href="#">Визы: Информация</a></li>
+            <li><a href="#">Подарочные сертификаты</a></li>
+            <li><a href="#">Блог</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>О компании</h3>
+          <ul>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Отзывы</a></li>
+            <li><a href="#">Наша команда</a></li>
+            <li><a href="#">Работа у нас</a></li>
+            <li><a href="#">Связаться с руководством</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Мы в соцсетях</h3>
+          <ul class="social-icons">
+            <li>
+              <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Способы оплаты</h3>
+          <div class="payment-icons">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fas fa-university"></i>
+            <i class="fas fa-paw"></i>
+            <i class="fab fa-google-pay"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="subscribe-container">
+        <marquee behavior="scroll" direction="left">
+          🌍 <i>Специальное предложение!</i> Скидки до <b>30%</b> на туры в Турцию и
+          Египет! 🏖️
+        </marquee>
+        <h3>Получайте самые свежие горящие туры на почту</h3>
+        <form class="subscribe-form">
+          <input type="email" placeholder="Введите Ваш e-mail" required />
+          <button type="submit">Подписаться</button>
+        </form>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © 2025 Все права защищены | Политика конфиденциальности |
+          Пользовательское соглашение
+        </p>
+      </div>
     </footer>
   </body>
 </html>
