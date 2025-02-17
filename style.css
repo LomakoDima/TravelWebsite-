@@ -404,6 +404,8 @@ nav ul li a:hover::after {
 
 .card-image {
   position: relative;
+   /* Это необходимо для абсолютного позиционирования */
+    overflow: hidden; 
   width: 100%;
   height: 180px;
 }
@@ -630,61 +632,61 @@ h3 {
 }
 
 .booking {
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  border-radius: 15px;
-  padding: 50px;
-  margin: 20px auto;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  padding: 50px;
-  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 60px;
+  margin: 30px auto;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
   color: white;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .booking-container {
   display: flex;
   align-items: center;
-  gap: 30px;
-  max-width: 1100px;
+  max-width: 1200px;
   width: 100%;
+  gap: 50px;
 }
 
 .booking-text {
   flex: 1;
+  max-width: 500px;
 }
 
 .booking h2 {
-  font-size: 32px;
+  font-size: 36px;
   color: #ffa500;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .booking p {
-  font-size: 16px;
+  font-size: 18px;
   color: #ddd;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .booking-form {
   display: flex;
+  flex-direction: column;
   gap: 15px;
-  margin-bottom: 10px;
 }
 
 .input-group {
   display: flex;
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
-  padding: 12px;
-  border-radius: 8px;
-  flex: 1;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .input-group i {
   color: #ffa500;
-  margin-right: 10px;
+  margin-right: 12px;
+  font-size: 18px;
 }
 
 .input-group input {
@@ -692,16 +694,16 @@ h3 {
   background: none;
   outline: none;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   width: 100%;
 }
 
 .booking-btn {
   background: linear-gradient(45deg, #ff8c00, #ffd700);
   border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 16px;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 18px;
   font-weight: bold;
   color: #2f4f67;
   cursor: pointer;
@@ -710,11 +712,11 @@ h3 {
 
 .booking-btn:hover {
   background: linear-gradient(45deg, #ffa500, #ffd700);
-  box-shadow: 0px 4px 10px rgba(255, 165, 0, 0.5);
+  box-shadow: 0px 4px 15px rgba(255, 165, 0, 0.5);
 }
 
 .policy {
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -724,14 +726,14 @@ h3 {
 }
 
 .booking-image img {
-  width: 300px;
-  border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  transition: transform 1s ease;
+  width: 450px;
+  border-radius: 15px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.6s ease;
 }
 
 .booking-image img:hover {
-  transform: rotate(5deg);
+  transform: scale(1.05);
   cursor: pointer;
 }
 
@@ -829,9 +831,11 @@ h3 {
 }
 
 .footer {
-  background-color: #1a1f26;
+  background-color: rgba(26, 31, 38, 0.8); /* Полупрозрачный фон */
   color: white;
   padding: 40px 0;
+  border-radius: 10px;
+  backdrop-filter: blur(10px); /* Эффект размытия для красивого эффекта */
 }
 
 .footer-container {
@@ -880,47 +884,192 @@ h3 {
   border-top: 1px solid rgba(255, 165, 0, 0.2);
 }
 
-.subscribe-container {
+.footer {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 40px 0;
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Начальное состояние для заголовков и ссылок */
+.footer-column h3, 
+.footer-column ul li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Начальное состояние для соц. иконок */
+.social-icons li {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Класс, который добавляет JS */
+.footer-column h3.visible,
+.footer-column ul li.visible,
+.social-icons li.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Для соц. иконок — отдельная анимация */
+.social-icons li.visible {
+  transform: scale(1);
+}
+
+
+.footer-column h3 {
+  color: #ff8c00;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #ffa500;
+}
+
+.social-icons i {
+  font-size: 18px;
+  margin-right: 8px;
+  transition: transform 0.9s ease;
+}
+
+.footer-bottom {
   text-align: center;
-  margin-top: 30px;
-  padding: 20px 0;
-  background-color: #13171c;
+  padding-top: 20px;
+  font-size: 18px;
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.subscribe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px solid white;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
 }
 
 .subscribe-container h3 {
+  
   color: white;
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
 .subscribe-form {
   display: flex;
-  justify-content: center;
-  gap: 5px;
+  width: 100%;
+  max-width: 600px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 
 .subscribe-form input {
-  width: 300px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  border: 2px solid #ff8c00;
+  flex: 1;
+  padding: 12px;
+  border: 2px solid white;
+  border-radius: 8px;
   outline: none;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+}
+
+.subscribe-form input::placeholder {
+  color: #ccc;
+
 }
 
 .subscribe-form button {
-  background-color: #ff8c00;
+  background: linear-gradient(135deg, #ff8c00, #ffa500);
   color: white;
-  padding: 10px 15px;
+  padding: 12px 18px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
+  font-size: 16px;
 }
 
 .subscribe-form button:hover {
-  background-color: #ffa500;
+  background: linear-gradient(135deg, #ffa500, #ff8c00);
 }
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.marquee-text {
+  display: inline-block;
+  font-size: 18px;
+  color: #ff8c00;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.payment-icons i {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Класс, который добавляет JS */
+.payment-icons i.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
 
 .payment-icons {
   display: flex;
@@ -930,25 +1079,15 @@ h3 {
   color: white;
 }
 
-.payment-icons i {
+/*.payment-icons i {
   transition: transform 1s ease-in-out;
-}
+}*/
 
 .payment-icons i:hover {
   transform: rotate(360deg);
   cursor: pointer;
   color: #fca311;
 }
-
-marquee {
-  font-size: 20px;
-  color: #ff4500;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  text-transform: uppercase;
-}
-
 .reviews-section {
   margin-top: 40px;
   padding: 20px;
@@ -967,6 +1106,8 @@ marquee {
   margin-bottom: 15px;
   color: #ff8c00;
 }
+
+
 
 table {
   width: 80%;
@@ -1268,4 +1409,199 @@ body.no-scroll {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 999;
+}
+
+/* Стили для контейнера слайдера */
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px; /* Добавляем отступ снизу */
+}
+
+/* Стили для слайдера */
+.slider {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  padding: 0 10px;
+}
+
+/* Стили для карточек */
+.tour-card {
+  flex: 0 0 300px; /* или задайте нужную ширину карточки */
+  margin: 10px;
+  border: 1px solid #ccc; /* Добавляем рамку для карточек */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Добавляем тень для карточек */
+}
+
+/* Стили для кнопок-стрелок */
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 1; /* Размещаем кнопки поверх карточек */
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+/* Стили для индикатора */
+.slider-indicator {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.indicator-item {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.indicator-item.active {
+  background-color: #333;
+}
+
+/* Дополнительные стили для карточек (пример) */
+.tour-card .card-image {
+  width: 100%;
+  overflow: hidden;
+}
+
+.tour-card .card-image img {
+  width: 100%;
+  display: block;
+}
+
+.tour-card .card-content {
+  padding: 10px;
+}
+
+.recommended {
+  position: absolute;
+  top: 10px; /* Можно настроить отступ сверху */
+  left: 10px; /* Можно настроить отступ слева */
+  background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 1; /* Гарантирует, что элемент будет поверх изображения */
+}
+
+/* ... (остальные стили) ... */
+
+/* Media Query для экранов меньше 768px (мобильные) */
+@media (max-width: 767px) {
+  .header-container {
+      flex-direction: column; /* Логотип и навигация становятся вертикально */
+      align-items: center;
+  }
+
+  nav ul {
+      flex-direction: column; /* Пункты меню становятся вертикально */
+      text-align: center;
+  }
+
+  nav li {
+      margin: 10px 0; /* Отступ между пунктами меню */
+  }
+
+  .home h1 {
+      font-size: 30px; /* Уменьшаем размер заголовка на главной */
+  }
+
+  .home p {
+      font-size: 16px; /* Уменьшаем размер текста на главной */
+  }
+
+  .steps-container {
+      flex-direction: column; /* Шаги становятся вертикально */
+  }
+
+  .step {
+      width: 90%; /* Шаг занимает почти всю ширину экрана */
+      margin: 10px auto; /* Отступ между шагами */
+  }
+
+  .cards-container {
+      flex-direction: column; /* Карточки становятся вертикально */
+  }
+
+  .tour-card {
+      width: 90%; /* Карточка занимает почти всю ширину экрана */
+      margin: 10px auto; /* Отступ между карточками */
+  }
+
+  .booking-container {
+      flex-direction: column; /* Контейнер бронирования становится вертикально */
+  }
+
+  .booking-image {
+      width: 100%; /* Изображение бронирования занимает всю ширину */
+      margin-bottom: 20px;
+  }
+
+  .advantages-container {
+      grid-template-columns: 1fr; /* Преимущества становятся в один столбец */
+  }
+
+  .advantage-item {
+      flex-direction: column; /* Элемент преимущества становится вертикально */
+      text-align: center;
+  }
+
+  .contacts-content {
+      flex-direction: column; /* Контакты становятся вертикально */
+  }
+
+  .contact-item {
+      font-size: 16px; /* Уменьшаем размер текста контактов */
+  }
+
+  .footer-container {
+      grid-template-columns: 1fr; /* Колонки подвала становятся в один столбец */
+  }
+
+  .footer-column {
+      text-align: center; /* Текст в подвале по центру */
+  }
+
+  .subscribe-form {
+      flex-direction: column; /* Форма подписки становится вертикально */
+  }
+
+  .subscribe-form input {
+      width: 100%; /* Поле ввода подписки занимает всю ширину */
+      margin-bottom: 10px;
+  }
+
+  table {
+      display: block; /* Таблица становится горизонтально прокручиваемой */
+      overflow-x: auto;
+  }
+
+  .form {
+      width: 90%; /* Форма занимает почти всю ширину экрана */
+      margin: 10px auto; /* Отступ между формой */
+  }
+
+  .login-form-container {
+      width: 90%; /* Контейнер формы входа занимает почти всю ширину экрана */
+      margin: 20px auto; /* Отступ между формой */
+  }
 }
