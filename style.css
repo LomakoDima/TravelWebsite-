@@ -2,10 +2,10 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url("island1.jpg"); 
-  background-size: cover; 
-  background-position: center; 
-  background-attachment: fixed; 
+  background-image: url("images/island1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: #333;
 }
 
@@ -45,6 +45,8 @@ header {
   transform: scale(1.1);
   cursor: pointer;
 }
+
+
 
 .nav-buttons {
   display: flex;
@@ -208,6 +210,26 @@ nav ul li a:hover::after {
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   padding: 50px 20px;
   color: white;
+  
+}
+
+.about-text h2 {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.about-text p {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+  transition-delay: 0.3s; /* Задержка появления для параграфа */
+}
+
+.about.visible .about-text h2,
+.about.visible .about-text p { /* Класс .visible добавляется секции */
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .about h2 {
@@ -345,7 +367,7 @@ nav ul li a:hover::after {
   width: 300px;
   border-radius: 15px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.15); 
+  background: rgba(255, 255, 255, 0.15);
   border: 2px solid rgba(255, 255, 255, 0.3);
   opacity: 0;
   transform: translateY(50px);
@@ -404,8 +426,7 @@ nav ul li a:hover::after {
 
 .card-image {
   position: relative;
-   /* Это необходимо для абсолютного позиционирования */
-    overflow: hidden; 
+  overflow: hidden;
   width: 100%;
   height: 180px;
 }
@@ -698,6 +719,8 @@ h3 {
   width: 100%;
 }
 
+
+
 .booking-btn {
   background: linear-gradient(45deg, #ff8c00, #ffd700);
   border: none;
@@ -735,6 +758,36 @@ h3 {
 .booking-image img:hover {
   transform: scale(1.05);
   cursor: pointer;
+}
+
+.booking-image,
+.booking-text {
+  opacity: 0;
+  transform: translateY(20px); /* Небольшое смещение вниз */
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.booking.visible .booking-image {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.booking.visible .booking-text {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s; /* Задержка для текста */
+}
+
+.booking-form {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+  transition-delay: 0.6s; /* Задержка для формы */
+}
+
+.booking.visible .booking-form {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .advantages {
@@ -831,11 +884,11 @@ h3 {
 }
 
 .footer {
-  background-color: rgba(26, 31, 38, 0.8); /* Полупрозрачный фон */
+  background-color: rgba(26, 31, 38, 0.8);
   color: white;
   padding: 40px 0;
   border-radius: 10px;
-  backdrop-filter: blur(10px); /* Эффект размытия для красивого эффекта */
+  backdrop-filter: blur(10px);
 }
 
 .footer-container {
@@ -900,22 +953,19 @@ h3 {
   margin: auto;
 }
 
-/* Начальное состояние для заголовков и ссылок */
-.footer-column h3, 
+.footer-column h3,
 .footer-column ul li {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* Начальное состояние для соц. иконок */
 .social-icons li {
   opacity: 0;
   transform: scale(0.8);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Класс, который добавляет JS */
 .footer-column h3.visible,
 .footer-column ul li.visible,
 .social-icons li.visible {
@@ -923,11 +973,9 @@ h3 {
   transform: translateY(0);
 }
 
-/* Для соц. иконок — отдельная анимация */
 .social-icons li.visible {
   transform: scale(1);
 }
-
 
 .footer-column h3 {
   color: #ff8c00;
@@ -984,7 +1032,6 @@ h3 {
 }
 
 .subscribe-container h3 {
-  
   color: white;
   font-size: 20px;
   margin-bottom: 15px;
@@ -1012,7 +1059,6 @@ h3 {
 
 .subscribe-form input::placeholder {
   color: #ccc;
-
 }
 
 .subscribe-form button {
@@ -1061,15 +1107,10 @@ h3 {
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Класс, который добавляет JS */
 .payment-icons i.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-
-
-
 
 .payment-icons {
   display: flex;
@@ -1107,8 +1148,6 @@ h3 {
   color: #ff8c00;
 }
 
-
-
 table {
   width: 80%;
   align-items: center;
@@ -1126,6 +1165,92 @@ td {
 
 th {
   color: #ff8c00;
+}
+
+.faq {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  padding: 50px;
+  margin: 20px auto;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 50px 20px;
+  color: white;
+}
+
+/* ... (предыдущие стили) ... */
+
+.faq-question.active { /* Стиль для активного вопроса */
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
+.faq-question.active i {
+  transform: rotate(180deg); /* Поворачиваем иконку */
+}
+
+.faq h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: 'Montserrat', sans-serif; /* Современный шрифт */
+  font-weight: 700;
+  color: #fff; /* Темный цвет заголовка */
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Элемент FAQ (вопрос + ответ) */
+.faq-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee; /* Разделитель между вопросами */
+}
+
+/* Вопрос */
+.faq-question {
+  padding: 20px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif; /* Современный шрифт */
+  font-weight: 600;
+  color: #333;
+  transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+  display: flex; /* Для выравнивания иконки справа */
+  justify-content: space-between; /* Распределяем элементы по краям */
+  align-items: center; /* Выравниваем по вертикали */
+}
+
+.faq-question:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Затемняем фон при наведении */
+}
+
+.faq-question i {
+  margin-left: 10px;
+  transition: transform 0.3s ease; /* Плавное вращение иконки */
+}
+
+/* Ответ (скрыт по умолчанию) */
+.faq-answer {
+  padding: 0 20px;
+  max-height: 0; /* Скрываем ответ */
+  overflow: hidden;
+  transition: max-height 0.3s ease; /* Плавное появление/скрытие */
+  font-family: 'Roboto', sans-serif; /* Современный шрифт */
+  color: #fff;
+}
+
+.faq-answer p {
+  margin-bottom: 10px;
+}
+
+/* Класс для активного состояния (когда ответ открыт) */
+.faq-answer.active {
+  max-height: 500px; /* Устанавливаем максимальную высоту для отображения */
+  padding: 20px; /* Добавляем отступы */
+}
+
+.faq-question.active i {
+  transform: rotate(180deg);
 }
 
 .form {
@@ -1317,6 +1442,19 @@ th {
   margin-top: 10px;
 }
 
+.inputForm i {
+  cursor: pointer;
+  font-size: 15px;
+  margin-left: 5px;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.inputForm i:hover {
+  color: #000;
+}
+
+
 .btn {
   display: flex;
   align-items: center;
@@ -1411,30 +1549,26 @@ body.no-scroll {
   z-index: 999;
 }
 
-/* Стили для контейнера слайдера */
 .slider-container {
   position: relative;
   width: 100%;
   overflow: hidden;
-  margin-bottom: 20px; /* Добавляем отступ снизу */
+  margin-bottom: 20px;
 }
 
-/* Стили для слайдера */
 .slider {
   display: flex;
   transition: transform 0.3s ease-in-out;
   padding: 0 10px;
 }
 
-/* Стили для карточек */
 .tour-card {
-  flex: 0 0 300px; /* или задайте нужную ширину карточки */
+  flex: 0 0 300px;
   margin: 10px;
-  border: 1px solid #ccc; /* Добавляем рамку для карточек */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Добавляем тень для карточек */
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Стили для кнопок-стрелок */
 .prev-button,
 .next-button {
   position: absolute;
@@ -1445,7 +1579,7 @@ body.no-scroll {
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  z-index: 1; /* Размещаем кнопки поверх карточек */
+  z-index: 1;
 }
 
 .prev-button {
@@ -1456,7 +1590,6 @@ body.no-scroll {
   right: 10px;
 }
 
-/* Стили для индикатора */
 .slider-indicator {
   display: flex;
   justify-content: center;
@@ -1476,7 +1609,6 @@ body.no-scroll {
   background-color: #333;
 }
 
-/* Дополнительные стили для карточек (пример) */
 .tour-card .card-image {
   width: 100%;
   overflow: hidden;
@@ -1493,115 +1625,32 @@ body.no-scroll {
 
 .recommended {
   position: absolute;
-  top: 10px; /* Можно настроить отступ сверху */
-  left: 10px; /* Можно настроить отступ слева */
-  background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 14px;
-  z-index: 1; /* Гарантирует, что элемент будет поверх изображения */
+  z-index: 1;
 }
 
-/* ... (остальные стили) ... */
 
-/* Media Query для экранов меньше 768px (мобильные) */
-@media (max-width: 767px) {
-  .header-container {
-      flex-direction: column; /* Логотип и навигация становятся вертикально */
-      align-items: center;
-  }
-
-  nav ul {
-      flex-direction: column; /* Пункты меню становятся вертикально */
-      text-align: center;
-  }
-
-  nav li {
-      margin: 10px 0; /* Отступ между пунктами меню */
-  }
-
-  .home h1 {
-      font-size: 30px; /* Уменьшаем размер заголовка на главной */
-  }
-
-  .home p {
-      font-size: 16px; /* Уменьшаем размер текста на главной */
-  }
-
-  .steps-container {
-      flex-direction: column; /* Шаги становятся вертикально */
-  }
-
-  .step {
-      width: 90%; /* Шаг занимает почти всю ширину экрана */
-      margin: 10px auto; /* Отступ между шагами */
-  }
-
-  .cards-container {
-      flex-direction: column; /* Карточки становятся вертикально */
-  }
-
-  .tour-card {
-      width: 90%; /* Карточка занимает почти всю ширину экрана */
-      margin: 10px auto; /* Отступ между карточками */
-  }
-
-  .booking-container {
-      flex-direction: column; /* Контейнер бронирования становится вертикально */
-  }
-
-  .booking-image {
-      width: 100%; /* Изображение бронирования занимает всю ширину */
-      margin-bottom: 20px;
-  }
-
-  .advantages-container {
-      grid-template-columns: 1fr; /* Преимущества становятся в один столбец */
-  }
-
-  .advantage-item {
-      flex-direction: column; /* Элемент преимущества становится вертикально */
-      text-align: center;
-  }
-
-  .contacts-content {
-      flex-direction: column; /* Контакты становятся вертикально */
-  }
-
-  .contact-item {
-      font-size: 16px; /* Уменьшаем размер текста контактов */
-  }
-
-  .footer-container {
-      grid-template-columns: 1fr; /* Колонки подвала становятся в один столбец */
-  }
-
-  .footer-column {
-      text-align: center; /* Текст в подвале по центру */
-  }
-
-  .subscribe-form {
-      flex-direction: column; /* Форма подписки становится вертикально */
-  }
-
-  .subscribe-form input {
-      width: 100%; /* Поле ввода подписки занимает всю ширину */
-      margin-bottom: 10px;
-  }
-
-  table {
-      display: block; /* Таблица становится горизонтально прокручиваемой */
-      overflow-x: auto;
-  }
-
-  .form {
-      width: 90%; /* Форма занимает почти всю ширину экрана */
-      margin: 10px auto; /* Отступ между формой */
-  }
-
-  .login-form-container {
-      width: 90%; /* Контейнер формы входа занимает почти всю ширину экрана */
-      margin: 20px auto; /* Отступ между формой */
-  }
+.footer-bottom h1 {
+  font-size: 4rem;
+  background: linear-gradient(
+    to right,
+    rgb(250, 78, 10),
+    rgb(247, 12, 204),
+    rgb(0, 106, 255),
+    rgb(48, 248, 255),
+    rgb(250, 78, 10)
+    );
+  background-clip: text;
 }
+
+
+
+
+
+
