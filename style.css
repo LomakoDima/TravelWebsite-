@@ -1636,19 +1636,6 @@ body.no-scroll {
 }
 
 
-.footer-bottom h1 {
-  font-size: 4rem;
-  background: linear-gradient(
-    to right,
-    rgb(250, 78, 10),
-    rgb(247, 12, 204),
-    rgb(0, 106, 255),
-    rgb(48, 248, 255),
-    rgb(250, 78, 10)
-    );
-  background-clip: text;
-}
-
 
 
 
