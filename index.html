@@ -1,3 +1,4 @@
+<!--DimaLab | MIT license -->
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -40,17 +41,42 @@
 
     <section id="about" class="about">
       <div class="about-container">
-        <div class="about-text">
-          <h2>Почему выбирают нас?</h2>
-          <p>
-            Мы предлагаем лучшие туры по всему миру. Наши менеджеры помогут вам
-            подобрать идеальный вариант для вашего отдыха. Мы работаем с
-            проверенными туроператорами и гарантируем качество услуг.
-          </p>
+        <h2>О нас</h2>
+        <p>Мы – команда профессионалов, которая более 10 лет помогает людям находить идеальные путешествия.</p>
+    
+        <h3>Наша история</h3>
+        <p>Компания была основана в 2012 году с целью сделать путешествия доступными и комфортными для каждого.</p>
+    
+        <h3>Почему нам доверяют?</h3>
+        <div class="trust-cards">
+          <div class="card">
+            <i class="fas fa-check-circle"></i>
+            <p><b>Опыт</b> — 10+ лет в туристической сфере</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-check-circle"></i>
+            <p><b>Надежность</b> — только проверенные туроператоры</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-check-circle"></i>
+            <p><b>Индивидуальный подход</b> — подбираем туры под ваши предпочтения</p>
+          </div>
+        </div>
+    
+        <h3>Наша команда</h3>
+        <div class="team">
+          <div class="team-member">
+            <img src="images/mana.jpg" alt="Менеджер">
+            <p>Анна – эксперт по отдыху в Европе</p>
+          </div>
+          <div class="team-member">
+            <img src="images/manager2.jpg" alt="Менеджер">
+            <p>Игорь – специалист по экзотическим турам</p>
+          </div>
         </div>
       </div>
     </section>
-
+    
     <section class="steps">
       <h2>Как это работает?</h2>
       <p>Простой процесс в 5 шагов</p>
@@ -89,6 +115,7 @@
     </section>
 
     <div id="cards-container" class="cards-container">
+      <h1>Популярные туры</h1>
       <div class="slider-container">
         <div class="slider">
           <div class="tour-card">
@@ -479,7 +506,7 @@
     </section>
 
     <section class="advantages">
-      <h2>6 аргументов, почему туристы выбирают <span>«НАС»</span></h2>
+      <h2>6 аргументов, почему туристы выбирают <span>«ТУРГИД»</span></h2>
       <div class="advantages-container">
         <div class="advantage-item">
           <i class="fas fa-globe"></i>
@@ -602,9 +629,43 @@
             <p>Москва, ул. Путешествий, 12</p>
           </div>
         </div>
-        <button class="contacts-button">Написать нам</button>
+        <button id="open-modal" class="contacts-button">Написать нам</button>
       </div>
     </section>
+
+    
+
+    
+    <div id="contact-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Свяжитесь с нами</h2>
+    
+        <form id="contact-form">
+          <div class="input-group">
+            <input type="text" id="name" name="name" placeholder="Имя" required>
+          </div>
+    
+          <div class="input-group">
+            <input type="email" id="email" name="email" placeholder="Email" required>
+          </div>
+    
+          <div class="input-group">
+            <textarea id="message" name="message" placeholder="Ваше сообщение" required></textarea>
+          </div>
+    
+          <button type="submit">Отправить</button>
+        </form>
+
+        <div id="toast" class="toast">
+          <i class="fa-solid fa-check"></i>
+          <p>Сообщение отправлено успешно!</p>
+        </div>
+      </div>
+    </div>
+
+
+
 
     <section id="faq" class="faq">
       <h2>Часто задаваемые вопросы</h2>
@@ -874,5 +935,7 @@
     <script src="scripts/faq.js"></script>
     <script src="scripts/about.js"></script>
     <script src="scripts/booking.js"></script>
+    <script src="scripts/showContacts.js"></script>
+    <script src="scripts/faq-anim.js"></script>
   </body>
 </html>

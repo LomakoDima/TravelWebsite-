@@ -124,6 +124,8 @@ nav ul li a:hover::after {
   overflow: hidden;
 }
 
+
+
 .home::before {
   content: "";
   position: absolute;
@@ -208,33 +210,12 @@ nav ul li a:hover::after {
   padding: 50px;
   margin: 20px auto;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  padding: 50px 20px;
   color: white;
-  
-}
-
-.about-text h2 {
-  transform: translateY(20px);
-  opacity: 0;
-  transition: transform 1s ease, opacity 1s ease;
-}
-
-.about-text p {
-  transform: translateY(20px);
-  opacity: 0;
-  transition: transform 1s ease, opacity 1s ease;
-  transition-delay: 0.3s; /* Задержка появления для параграфа */
-}
-
-.about.visible .about-text h2,
-.about.visible .about-text p { /* Класс .visible добавляется секции */
-  transform: translateY(0);
-  opacity: 1;
+  text-align: center;
 }
 
 .about h2 {
   font-size: 32px;
-  text-align: center;
   color: #ff8c00;
 }
 
@@ -243,6 +224,70 @@ nav ul li a:hover::after {
   color: #ddd;
   margin-top: 20px;
 }
+
+.trust-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card i {
+  font-size: 32px;
+  color: #ff8c00;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 18px;
+  color: white;
+}
+
+
+.team {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-member img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ff8c00;
+  transition: transform 0.3s;
+}
+
+.team-member img:hover {
+  transform: scale(1.1);
+}
+
+.team-member p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #ddd;
+}
+
 
 .steps {
   text-align: center;
@@ -652,6 +697,137 @@ h3 {
   transform: scale(1.05);
 }
 
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal.show {
+  opacity: 1;
+}
+
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 15px;
+  width: 430px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transform: scale(0.8);
+  transition: transform 0.3s ease-in-out;
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+}
+
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.7s ease;
+}
+
+.close:hover {
+  color: #ffcc00;
+  transform: rotate(90deg);
+}
+
+.modal-content h2 {
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+#contact-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+.input-group:focus-within {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  border-radius: 5px;
+  background: transparent; 
+  color: #fff; 
+  font-size: 16px;
+  outline: none; 
+  border: none;
+  resize: none;
+  transition: 0.3s ease-in-out;
+}
+
+.input-group input:-webkit-autofill {
+  background-color: transparent !important;
+  box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.1) inset !important;
+  color: #fff !important;
+}
+
+#contact-form button {
+  background: linear-gradient(135deg, #ff6600, #ffcc00);
+  width: 100%; 
+  max-width: 400px; 
+  border: none;
+  padding: 14px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.4);
+}
+
+#contact-form button:hover {
+  background: linear-gradient(135deg, #ff4500, #ffbb00);
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(255, 204, 0, 0.6);
+}
+
 .booking {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
@@ -719,8 +895,6 @@ h3 {
   width: 100%;
 }
 
-
-
 .booking-btn {
   background: linear-gradient(45deg, #ff8c00, #ffd700);
   border: none;
@@ -763,7 +937,7 @@ h3 {
 .booking-image,
 .booking-text {
   opacity: 0;
-  transform: translateY(20px); /* Небольшое смещение вниз */
+  transform: translateY(20px); 
   transition: opacity 1s ease, transform 1s ease;
 }
 
@@ -775,14 +949,14 @@ h3 {
 .booking.visible .booking-text {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0.3s; /* Задержка для текста */
+  transition-delay: 0.3s; 
 }
 
 .booking-form {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
-  transition-delay: 0.6s; /* Задержка для формы */
+  transition-delay: 0.6s; 
 }
 
 .booking.visible .booking-form {
@@ -1178,22 +1352,21 @@ th {
   color: white;
 }
 
-/* ... (предыдущие стили) ... */
 
-.faq-question.active { /* Стиль для активного вопроса */
+.faq-question.active { 
   background-color: rgb(255, 255, 255, 0.1);
 }
 
 .faq-question.active i {
-  transform: rotate(180deg); /* Поворачиваем иконку */
+  transform: rotate(180deg); 
 }
 
 .faq h2 {
   text-align: center;
   margin-bottom: 30px;
-  font-family: 'Montserrat', sans-serif; /* Современный шрифт */
+  font-family: 'Montserrat', sans-serif; 
   font-weight: 700;
-  color: #fff; /* Темный цвет заголовка */
+  color: #fff; 
 }
 
 .faq-container {
@@ -1201,41 +1374,41 @@ th {
   margin: 0 auto;
 }
 
-/* Элемент FAQ (вопрос + ответ) */
+
 .faq-item {
   margin-bottom: 20px;
-  border-bottom: 1px solid #eee; /* Разделитель между вопросами */
+  border-bottom: 1px solid #eee; 
 }
 
-/* Вопрос */
+
 .faq-question {
   padding: 20px;
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif; /* Современный шрифт */
+  font-family: 'Open Sans', sans-serif; 
   font-weight: 600;
   color: #333;
-  transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
-  display: flex; /* Для выравнивания иконки справа */
-  justify-content: space-between; /* Распределяем элементы по краям */
-  align-items: center; /* Выравниваем по вертикали */
+  transition: background-color 0.3s ease; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
 }
 
 .faq-question:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Затемняем фон при наведении */
+  background-color: rgba(255, 255, 255, 0.1); 
 }
 
 .faq-question i {
   margin-left: 10px;
-  transition: transform 0.3s ease; /* Плавное вращение иконки */
+  transition: transform 0.3s ease; 
 }
 
-/* Ответ (скрыт по умолчанию) */
+
 .faq-answer {
   padding: 0 20px;
-  max-height: 0; /* Скрываем ответ */
+  max-height: 0; 
   overflow: hidden;
-  transition: max-height 0.3s ease; /* Плавное появление/скрытие */
-  font-family: 'Roboto', sans-serif; /* Современный шрифт */
+  transition: max-height 0.3s ease; 
+  font-family: 'Roboto', sans-serif;
   color: #fff;
 }
 
@@ -1243,10 +1416,10 @@ th {
   margin-bottom: 10px;
 }
 
-/* Класс для активного состояния (когда ответ открыт) */
+
 .faq-answer.active {
-  max-height: 500px; /* Устанавливаем максимальную высоту для отображения */
-  padding: 20px; /* Добавляем отступы */
+  max-height: 500px; 
+  padding: 20px; 
 }
 
 .faq-question.active i {
@@ -1636,17 +1809,35 @@ body.no-scroll {
 }
 
 
-.footer-bottom h1 {
-  font-size: 4rem;
-  background: linear-gradient(
-    to right,
-    rgb(250, 78, 10),
-    rgb(247, 12, 204),
-    rgb(0, 106, 255),
-    rgb(48, 248, 255),
-    rgb(250, 78, 10)
-    );
-  background-clip: text;
+.toast {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(50, 150, 50, 0.9);
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateY(20px);
+  display: flex;
+}
+
+.toast.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-icon {
+  width: 20px;
+  height: 20px;
 }
 
 
