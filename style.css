@@ -1809,6 +1809,7 @@ body.no-scroll {
 }
 
 
+<<<<<<< HEAD
 .toast {
   display: none;
   position: fixed;
@@ -1840,6 +1841,8 @@ body.no-scroll {
   height: 20px;
 }
 
+=======
+>>>>>>> 1ecb0e786f696c231e72b15b4591d27ce59e0315
 
 
 
