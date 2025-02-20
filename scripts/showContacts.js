@@ -38,25 +38,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = formData.get("email");
     const message = formData.get("message");
 
-    console.log("Имя:", name);
-    console.log("Email:", email);
-    console.log("Сообщение:", message);
+    fetch("send_mail.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        toast.classList.add("show");
 
-    
+        setTimeout(() => {
+            modal.classList.remove("show");
+            modal.style.display = "none";
+        }, 1200);
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3000);
+    })
+    .catch(error => console.error("Ошибка:", error));
+
     form.reset();
-
-    
-    toast.classList.add("show");
-
-    
-    setTimeout(() => {
-      modal.classList.remove("show");
-      modal.style.display = "none";
-    }, 1200);
-
-    
-    setTimeout(() => {
-      toast.classList.remove("show");
-    }, 3000);
   });
 });

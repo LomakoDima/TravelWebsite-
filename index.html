@@ -39,6 +39,88 @@
       </div>
     </section>
 
+    <div class="search-panel">
+      <div class="search-item" data-dropdown="dropdown-1">
+        <span class="search-label">
+          <i class="fa fa-plane"></i> Страна, курорт, отель
+        </span>
+        <span class="search-value">Таиланд (Тайланд), Все курорты...</span>
+        <i class="fa fa-angle-down icon-arrow"></i>
+    
+        
+        <div id="dropdown-1" class="dropdown-menu">
+          <div class="dropdown-section">
+            <label><input type="checkbox" /> Таиланд</label><br />
+            <label><input type="checkbox" /> Турция</label><br />
+            <label><input type="checkbox" /> Египет</label><br />
+            <label><input type="checkbox" /> ОАЭ</label><br />
+            <label><input type="checkbox" /> Греция</label><br />
+          </div>
+        </div>
+      </div>
+    
+      <div class="search-item" data-dropdown="dropdown-2">
+        <span class="search-label">
+          <i class="fa fa-plane-departure"></i> Выезд из
+        </span>
+        <span class="search-value">Астана, Алматы</span>
+        <i class="fa fa-angle-down icon-arrow"></i>
+    
+        <!-- Выпадающее меню 2 -->
+        <div id="dropdown-2" class="dropdown-menu">
+          <div class="dropdown-section">
+            <label><input type="checkbox" /> Астана</label><br />
+            <label><input type="checkbox" /> Алматы</label><br />
+            <label><input type="checkbox" /> Шымкент</label><br />
+            <!-- ... и т.д. -->
+          </div>
+        </div>
+      </div>
+    
+      <!-- Блок 3: Дата, длительность -->
+      <div class="search-item" data-dropdown="dropdown-3">
+        <span class="search-label">
+          <i class="fa fa-calendar"></i> Дата, длительность
+        </span>
+        <span class="search-value">01.03 - 08.03, 9 - 11 ночей</span>
+        <i class="fa fa-angle-down icon-arrow"></i>
+    
+        <!-- Выпадающее меню 3 -->
+        <div id="dropdown-3" class="dropdown-menu">
+          <div class="dropdown-section">
+            <label>Дата вылета: <input type="date" /></label><br />
+            <label>Длительность: 
+              <input type="number" min="1" placeholder="мин" /> -
+              <input type="number" min="1" placeholder="макс" /> ночей
+            </label>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Блок 4: Кто едет -->
+      <div class="search-item" data-dropdown="dropdown-4">
+        <span class="search-label">
+          <i class="fa fa-user"></i> Кто едет
+        </span>
+        <span class="search-value">2 взрослых</span>
+        <i class="fa fa-angle-down icon-arrow"></i>
+    
+        <!-- Выпадающее меню 4 -->
+        <div id="dropdown-4" class="dropdown-menu">
+          <div class="dropdown-section">
+            <label>Взрослые: <input type="number" value="2" min="1" /></label><br />
+            <label>Дети: <input type="number" value="0" min="0" /></label><br />
+            <!-- и т.д. -->
+          </div>
+        </div>
+      </div>
+    
+      <!-- Кнопка "Искать" -->
+      <button class="search-button">ИСКАТЬ</button>
+    </div>
+    
+    
+
     <section id="about" class="about">
       <div class="about-container">
         <h2>О нас</h2>
@@ -76,6 +158,8 @@
         </div>
       </div>
     </section>
+
+    
     
     <section class="steps">
       <h2>Как это работает?</h2>
@@ -937,5 +1021,7 @@
     <script src="scripts/booking.js"></script>
     <script src="scripts/showContacts.js"></script>
     <script src="scripts/faq-anim.js"></script>
+    <script src="scripts/search-item.js"></script>
+    <script src="scripts/search-system.js"></script>
   </body>
 </html>
