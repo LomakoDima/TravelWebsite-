@@ -1,13 +1,114 @@
+* {
+  transition: all 0.5s ease-in-out;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url("images/island1.jpg");
+  background-image: url("/static/images/island1.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: #333;
 }
+
+body.night-theme {
+  background: url('/static/images/sunset.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ddd;
+}
+
+.night-theme .card {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+.night-theme .step {
+  background: rgba(0, 0, 0, 0.6);
+  color: #f0c674;
+  border-color: #f0c674;
+}
+
+.night-theme .step i {
+  color: #f0c674;
+}
+
+.night-theme h2 {
+  color: #ffcc00;
+}
+
+.night-theme .tour-card {
+  background: rgba(20, 20, 20, 0.9); /* Тёмный фон с лёгкой прозрачностью */
+  color: #f0c674; /* Тёплый золотистый текст */
+  border-color: #f0c674;
+}
+
+.night-theme .tour-card h3 {
+  color: #ffcc00; /* Жёлтый заголовок */
+}
+
+.night-theme .tour-card .price {
+  color: #ff9900; /* Оранжевый для цены */
+}
+
+.night-theme .tour-card .rating-stars {
+  color: #ffd700; /* Золотые звёзды */
+}
+
+.night-theme .tour-card .btn {
+  background: #333;
+  color: #ffcc00;
+  border: 1px solid #ffcc00;
+}
+
+.night-theme .tour-card .btn:hover {
+  background: #ffcc00;
+  color: #000;
+}
+
+
+
+.dark-mode .about,
+.dark-mode .cards-container,
+.dark-mode .contacts {
+  background: rgba(20, 20, 20, 0.7);
+}
+
+.theme-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  transition: transform 0.4s ease-in-out;
+  color: #ffcc00; /* Цвет по умолчанию */
+}
+
+.mobile-theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  transition: transform 0.4s ease-in-out;
+  color: #ffcc00; /* Цвет по умолчанию */
+}
+
+
+
+.theme-btn:active {
+  transform: rotate(360deg);
+}
+
+.night-theme .theme-btn {
+  color: #f0f0f0;
+}
+
+.night-theme .theme-btn:active {
+  transform: rotate(-360deg);
+}
+
+
+
 
 header {
   position: fixed;
@@ -19,6 +120,14 @@ header {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   padding: 15px 0;
   z-index: 1000;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-20px); /* Slightly above the viewport */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transitions */
+}
+
+.header-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .header-container {
@@ -38,7 +147,29 @@ header {
   background: linear-gradient(45deg, #ffcc00, #ff6600);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, filter 0.5s ease-in-out; /* Добавляем transition для filter */
+  filter: blur(5px); /* Изначально размыто */
+}
+
+.logo.logo-visible { /* Класс для анимации логотипа */
+  filter: blur(0); /* Убираем размытие */
+}
+
+.logo.logo-visible:hover { /* Пульсация при наведении */
+  animation: pulse 1s infinite;
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
 
 .logo:hover {
@@ -52,6 +183,35 @@ header {
   display: flex;
   align-items: center;
   gap: 25px;
+  opacity: 0; /* Скрываем кнопки */
+  transform: translateX(20px); /* Сдвигаем вправо */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Плавное появление */
+}
+
+.nav-buttons.nav-buttons-visible { /* Класс для анимации кнопок */
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.nav-item {
+  opacity: 0;
+  transform: translateY(-20px);
 }
 
 nav ul {
@@ -1984,8 +2144,340 @@ body.no-scroll {
 }
 
 
+.full-description {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  color: #ddd;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all 0.3s ease-in-out;
+}
+
+.full-description.show {
+  display: block;
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.about-container, .trust-cards .card, .team .team-member {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.about-container.show, .trust-cards .card.show, .team .team-member.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 
 
+.tour-collections {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.tour-collections h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #ffcc00;
+  text-shadow: 2px 2px 10px rgba(255, 204, 0, 0.5);
+}
+
+.tour-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.travel-agency {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  padding: 50px;
+  margin: 20px auto;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: white;
+}
+
+.travel-agency h2 {
+  font-size: 32px;
+  color: #ffcc00;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card .icon {
+  font-size: 32px;
+  color: #ff8c00;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 18px;
+  color: white;
+}
+
+#country {
+  font-size: 25px;
+  background: linear-gradient(45deg, #ff6600, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.changing-card h3, .changing-card p {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.changing-card h3, .changing-card p {
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+.tour-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.tour-item {
+  flex: 0 0 auto;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tour-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+.tour-item img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.tour-item p {
+  font-size: 16px;
+  color: #ddd;
+  margin-top: 10px;
+}
+
+.special-offer {
+  position: relative;
+  border: 2px solid #ffcc00;
+}
+
+.offer-label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ffcc00;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.slider-controls button {
+  background: #ffcc00;
+  border: none;
+  color: black;
+  padding: 10px 15px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.slider-controls button:hover {
+  background: #ff9900;
+}
+
+.view-all {
+  margin-top: 20px;
+  background: linear-gradient(45deg, #ff6600, #ffcc00);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.view-all:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 165, 0, 0.6);
+}
+
+
+
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: white;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+
+.mobile-sidebar {
+  display: none;         
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  padding: 20px;
+  transition: transform 0.3s ease;
+  transform: translateX(-100%); 
+  z-index: 1100;
+}
+
+.mobile-sidebar.open {
+  display: block;         
+  transform: translateX(0);
+}
+
+
+
+.mobile-menu-close {
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: #fff;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+
+.mobile-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 80px; 
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;              
+}
+
+.mobile-sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+.mobile-sidebar .header-button {
+  display: inline-block;
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+@media (max-width: 768px) {
+  
+  .nav-buttons {
+    display: none !important;
+  }
+
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+
+  .mobile-sidebar {
+    display: block;
+    transform: translateX(-100%);
+  }
+
+  .header-container {
+    justify-content: center;
+  }
+
+  .mobile-theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+
+}
+
+.logo-mobile {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #ffcc00, #ff6600);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease-in-out, filter 0.5s ease-in-out; 
+}
+
+
+@media (min-width: 769px) {
+  .mobile-menu-toggle,
+  .mobile-sidebar {
+    display: none !important;
+  }
+
+  .mobile-theme-toggle {
+    display: none !important;
+  }
+}
 

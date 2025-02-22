@@ -14,3 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cards.forEach((card) => observer.observe(card));
   });
+
+
+  document.querySelectorAll(".details-button").forEach(button => {
+    button.addEventListener("click", function () {
+        const fullDesc = this.nextElementSibling;
+        fullDesc.classList.toggle("show");
+        this.textContent = fullDesc.classList.contains("show") ? "Скрыть" : "Подробнее";
+    });
+});

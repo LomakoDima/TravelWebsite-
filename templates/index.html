@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Туристическое агентство</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -18,18 +18,47 @@
         <div class="nav-buttons">
           <nav>
             <ul>
-              <li><a href="#home">Главная</a></li>
-              <li><a href="#about">О нас</a></li>
-              <li><a href="#cards-container">Туры</a></li>
-              <li><a href="#faq">FAQ</a></li>
-              <li><a href="#contacts">Контакты</a></li>
-              <li><a href="#" id="login-button">Вход</a></li>
+              <li><a href="#home" class="nav-item">Главная</a></li>
+              <li><a href="#about" class="nav-item">О нас</a></li>
+              <li><a href="#cards-container" class="nav-item">Туры</a></li>
+              <li><a href="#faq" class="nav-item">FAQ</a></li>
+              <li><a href="#contacts" class="nav-item">Контакты</a></li>
+              <li><a href="#" id="login-button" class="nav-item">Вход</a></li>
             </ul>
           </nav>
           <a href="#" class="header-button">Забронировать</a>
+          <button id="theme-toggle-desktop" class="theme-btn">
+            <i id="theme-icon-desktop" class="fas fa-sun"></i>
+          </button>
         </div>
       </div>
     </header>
+    
+   
+<button id="mobile-menu-toggle" class="mobile-menu-toggle">
+  <i class="fas fa-bars"></i>
+</button>
+<button id="theme-toggle-mobile" class="mobile-theme-toggle">
+  <i id="theme-icon-mobile" class="fas fa-sun"></i>
+</button>
+
+
+
+<nav id="mobile-sidebar" class="mobile-sidebar">
+  <button id="mobile-menu-close" class="mobile-menu-close">
+    <i class="fas fa-times"></i>
+  </button>
+  <div class="logo-mobile">ТурГид</div>
+  <ul>
+    <li><a href="#home" class="nav-item">Главная</a></li>
+    <li><a href="#about" class="nav-item">О нас</a></li>
+    <li><a href="#cards-container" class="nav-item">Туры</a></li>
+    <li><a href="#faq" class="nav-item">FAQ</a></li>
+    <li><a href="#contacts" class="nav-item">Контакты</a></li>
+    <li><a href="#" id="login-button-mobile" class="nav-item">Вход</a></li>
+  </ul>
+  <a href="#" class="header-button">Забронировать</a>
+</nav>
 
     <section id="home" class="home">
       <div class="home-content">
@@ -66,18 +95,17 @@
         <span class="search-value">Астана, Алматы</span>
         <i class="fa fa-angle-down icon-arrow"></i>
     
-        <!-- Выпадающее меню 2 -->
+        
         <div id="dropdown-2" class="dropdown-menu">
           <div class="dropdown-section">
             <label><input type="checkbox" /> Астана</label><br />
             <label><input type="checkbox" /> Алматы</label><br />
             <label><input type="checkbox" /> Шымкент</label><br />
-            <!-- ... и т.д. -->
           </div>
         </div>
       </div>
     
-      <!-- Блок 3: Дата, длительность -->
+      
       <div class="search-item" data-dropdown="dropdown-3">
         <span class="search-label">
           <i class="fa fa-calendar"></i> Дата, длительность
@@ -85,7 +113,7 @@
         <span class="search-value">01.03 - 08.03, 9 - 11 ночей</span>
         <i class="fa fa-angle-down icon-arrow"></i>
     
-        <!-- Выпадающее меню 3 -->
+        
         <div id="dropdown-3" class="dropdown-menu">
           <div class="dropdown-section">
             <label>Дата вылета: <input type="date" /></label><br />
@@ -97,7 +125,7 @@
         </div>
       </div>
     
-      <!-- Блок 4: Кто едет -->
+      
       <div class="search-item" data-dropdown="dropdown-4">
         <span class="search-label">
           <i class="fa fa-user"></i> Кто едет
@@ -105,21 +133,23 @@
         <span class="search-value">2 взрослых</span>
         <i class="fa fa-angle-down icon-arrow"></i>
     
-        <!-- Выпадающее меню 4 -->
+        
         <div id="dropdown-4" class="dropdown-menu">
           <div class="dropdown-section">
             <label>Взрослые: <input type="number" value="2" min="1" /></label><br />
             <label>Дети: <input type="number" value="0" min="0" /></label><br />
-            <!-- и т.д. -->
+            
           </div>
         </div>
       </div>
     
-      <!-- Кнопка "Искать" -->
+      
       <button class="search-button">ИСКАТЬ</button>
     </div>
     
     
+
+
 
     <section id="about" class="about">
       <div class="about-container">
@@ -148,16 +178,40 @@
         <h3>Наша команда</h3>
         <div class="team">
           <div class="team-member">
-            <img src="images/mana.jpg" alt="Менеджер">
+            <img src="{{ url_for('static', filename='images/mana.jpg') }}" alt="Менеджер">
             <p>Анна – эксперт по отдыху в Европе</p>
           </div>
           <div class="team-member">
-            <img src="images/manager2.jpg" alt="Менеджер">
+            <img src="{{ url_for('static', filename='images/manager2.jpg') }}" alt="Менеджер">
             <p>Игорь – специалист по экзотическим турам</p>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="travel-agency">
+      <h2>Сеть турагентств "ТурГид"</h2>
+      <div class="cards">
+          <div class="card" id="branches">
+              <div class="icon">🌍</div>
+              <p>Наши филиалы</p>
+              <p><span id="offices">287</span> офисов, <span id="cities">78</span> городов</p>
+          </div>
+          <div class="card changing-card">
+            <div class="icon">🧳</div>
+            <h3 id="card-title">Сегодня улетели отдыхать</h3>
+            <p><span id="card-number">568</span> туристов</p>
+            
+        </div>
+        <div class="card changing-card" id="bookings">
+          <div class="icon">✈️</div>
+          <p>Сегодня заказали туры</p>
+          <p><span id="country">ОАЭ</span> <span id="amount">519 897</span> ₸</p>
+      </div>
+      
+          
+      </div>
+  </section>
 
     
     
@@ -198,13 +252,46 @@
       </div>
     </section>
 
+    <section class="tour-collections">
+      <h2>Подборки туров от экспертов «ТурГид»</h2>
+  
+      
+      <button class="slider-button left" onclick="prevSlide()">&lt;</button>
+  
+      <div class="tour-slider">
+          <div class="tour-item">
+              <img src="/static/images/nirvana.jpg" alt="Nirvana Hotels">
+              <p>Отели Nirvana — новый формат люксового отдыха!</p>
+          </div>
+          <div class="tour-item">
+              <img src="/static/images/crystal.jpg" alt="Crystal Hotels">
+              <p>Отели Crystal — гарантия лучшего соотношения цена-качество!</p>
+          </div>
+          <div class="tour-item changing-card">
+              <img src="/static/images/rixoshot.jpg" alt="Rixos Hotels">
+              <p>Отели сети Rixos с концепцией «все включено» в ОАЭ</p>
+          </div>
+          <div class="tour-item special-offer">
+              <img src="/static/images/rixosTurkey.jpg" alt="Rixos Turkey">
+              <div class="offer-label">Акция раннего бронирования -15%</div>
+              <p>Rixos Turkey — тот самый лучший отдых!</p>
+          </div>
+      </div>
+  
+      
+      <button class="slider-button right" onclick="nextSlide()">&gt;</button>
+  
+      <button class="view-all">Смотреть все подборки</button>
+  </section>
+  
+
     <div id="cards-container" class="cards-container">
       <h1>Популярные туры</h1>
       <div class="slider-container">
         <div class="slider">
           <div class="tour-card">
             <div class="card-image">
-              <img src="images/sokha.jpg" alt="Отель" />
+              <img src="{{ url_for('static', filename='images/sokha.jpg') }}" alt="Отель" />
               <div class="card-icons">
                 <button class="icon-button">
                   <i class="fas fa-heart"></i>
@@ -232,13 +319,254 @@
               </p>
               <p class="food">🍽️ завтрак</p>
               <p class="price">1 369 074 ₸</p>
+              <a href="{{ url_for('test') }}" class="details-button">Подробнее</a>
+            </div>
+          </div>
+
+          <div class="tour-card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/maikhao.jpg') }}" alt="Отель" />
+                <span class="recommended">Рекомендовано</span>
+                <div class="card-icons">
+                    <button class="icon-button"><i class="fas fa-heart"></i></button>
+                    <button class="icon-button"><i class="fas fa-balance-scale"></i></button>
+                </div>
+            </div>
+            <div class="card-content">
+                <h3>Maikhao Hotel Managed By Centara 4 ★</h3>
+                <p class="location">Таиланд (Тайланд), о. Пхукет</p>
+                <p class="rating">
+                    <span class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </span>
+                    <span class="reviews"><b>(21 отзыв)</b></span>
+                </p>
+                <p class="details">с 22.02 по 03.03 (9 ночей) | выезд из Астаны</p>
+                <p class="food">🍽️ завтрак</p>
+                <p class="price">914 416 ₸</p>
+                
+                <button class="details-button">Подробнее</button>
+                
+                <!-- Скрытая дополнительная информация -->
+                <div class="full-description hidden">
+                    <p><strong>Описание:</strong> Современный отель с шикарным пляжем, бассейном и ресторанами.</p>
+                    <p><strong>Маршрут:</strong> Астана → Пхукет → Краби → Симиланы</p>
+                    <p><strong>Что включено:</strong> Перелёт, трансфер, отель, завтрак, экскурсии.</p>
+                    <p><strong>Отзывы:</strong> "Очень понравился сервис, чистые номера, море рядом!"</p>
+                </div>
+            </div>
+        </div>
+        
+
+          <div class="tour-card">
+            <div class="card-image">
+              <img src="{{ url_for('static', filename='images/rixos.jpg') }}" alt="Отель" />
+              <div class="card-icons">
+                <button class="icon-button">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <button class="icon-button">
+                  <i class="fas fa-balance-scale"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>Rixos Downtown 5 ★</h3>
+              <p class="location">Турция , Анталия</p>
+              <p class="rating">
+                <span class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </span>
+                <span class="reviews"><b>(4 отзывов)</b></span>
+              </p>
+              <p class="details">
+                с 21.04 по 27.04 (5 ночей) | выезд из Алматы
+              </p>
+              <p class="food">🍽️ Все включено</p>
+              <p class="price">1 094 981 ₸</p>
               <button class="details-button">Подробнее</button>
             </div>
           </div>
 
           <div class="tour-card">
             <div class="card-image">
-              <img src="images/maikhao.jpg" alt="Отель" />
+              <img src="{{ url_for('static', filename='images/rixos.jpg') }}" alt="Отель" />
+              <div class="card-icons">
+                <button class="icon-button">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <button class="icon-button">
+                  <i class="fas fa-balance-scale"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>Rixos Downtown 5 ★</h3>
+              <p class="location">Турция , Анталия</p>
+              <p class="rating">
+                <span class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </span>
+                <span class="reviews"><b>(4 отзывов)</b></span>
+              </p>
+              <p class="details">
+                с 21.04 по 27.04 (5 ночей) | выезд из Алматы
+              </p>
+              <p class="food">🍽️ Все включено</p>
+              <p class="price">1 094 981 ₸</p>
+              <button class="details-button">Подробнее</button>
+            </div>
+          </div>
+
+          <div class="tour-card">
+            <div class="card-image">
+              <img src="{{ url_for('static', filename='images/rixos.jpg') }}" alt="Отель" />
+              <div class="card-icons">
+                <button class="icon-button">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <button class="icon-button">
+                  <i class="fas fa-balance-scale"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>Rixos Downtown 5 ★</h3>
+              <p class="location">Турция , Анталия</p>
+              <p class="rating">
+                <span class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </span>
+                <span class="reviews"><b>(4 отзывов)</b></span>
+              </p>
+              <p class="details">
+                с 21.04 по 27.04 (5 ночей) | выезд из Алматы
+              </p>
+              <p class="food">🍽️ Все включено</p>
+              <p class="price">1 094 981 ₸</p>
+              <button class="details-button">Подробнее</button>
+            </div>
+          </div>
+
+          <div class="tour-card">
+            <div class="card-image">
+              <img src="{{ url_for('static', filename='images/rixos.jpg') }}" alt="Отель" />
+              <div class="card-icons">
+                <button class="icon-button">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <button class="icon-button">
+                  <i class="fas fa-balance-scale"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>Rixos Downtown 5 ★</h3>
+              <p class="location">Турция , Анталия</p>
+              <p class="rating">
+                <span class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </span>
+                <span class="reviews"><b>(4 отзывов)</b></span>
+              </p>
+              <p class="details">
+                с 21.04 по 27.04 (5 ночей) | выезд из Алматы
+              </p>
+              <p class="food">🍽️ Все включено</p>
+              <p class="price">1 094 981 ₸</p>
+              <button class="details-button">Подробнее</button>
+            </div>
+          </div>
+
+          <div class="tour-card">
+            <div class="card-image">
+              <img src="{{ url_for('static', filename='images/rixos.jpg') }}" alt="Отель" />
+              <div class="card-icons">
+                <button class="icon-button">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <button class="icon-button">
+                  <i class="fas fa-balance-scale"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>Rixos Downtown 5 ★</h3>
+              <p class="location">Турция , Анталия</p>
+              <p class="rating">
+                <span class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </span>
+                <span class="reviews"><b>(4 отзывов)</b></span>
+              </p>
+              <p class="details">
+                с 21.04 по 27.04 (5 ночей) | выезд из Алматы
+              </p>
+              <p class="food">🍽️ Все включено</p>
+              <p class="price">1 094 981 ₸</p>
+              <button class="details-button">Подробнее</button>
+            </div>
+          </div>
+
+          <div class="tour-card">
+            <div class="card-image">
+              <img src="{{ url_for('static', filename='images/rixos.jpg') }}" alt="Отель" />
+              <div class="card-icons">
+                <button class="icon-button">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <button class="icon-button">
+                  <i class="fas fa-balance-scale"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>Rixos Downtown 5 ★</h3>
+              <p class="location">Турция , Анталия</p>
+              <p class="rating">
+                <span class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </span>
+                <span class="reviews"><b>(4 отзывов)</b></span>
+              </p>
+              <p class="details">
+                с 21.04 по 27.04 (5 ночей) | выезд из Алматы
+              </p>
+              <p class="food">🍽️ Все включено</p>
+              <p class="price">1 094 981 ₸</p>
+              <button class="details-button">Подробнее</button>
+            </div>
+          </div>
+
+          <div class="tour-card">
+            <div class="card-image">
+              <img src="{{ url_for('static', filename='images/rixos.jpg') }}" alt="Отель" />
               <span class="recommended">Рекомендовано</span>
               <div class="card-icons">
                 <button class="icon-button">
@@ -250,40 +578,6 @@
               </div>
             </div>
             <div class="card-content">
-              <h3>Maikhao Hotel Managed By Centara 4 ★</h3>
-              <p class="location">Таиланд (Тайланд) , о. Пхукет</p>
-              <p class="rating">
-                <span class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </span>
-                <span class="reviews"><b>(21 отзывов)</b></span>
-              </p>
-              <p class="details">
-                с 22.02 по 03.03 (9 ночей) | выезд из Астаны
-              </p>
-              <p class="food">🍽️ завтрак</p>
-              <p class="price">914 416 ₸</p>
-              <button class="details-button">Подробнее</button>
-            </div>
-          </div>
-
-          <div class="tour-card">
-            <div class="card-image">
-              <img src="images/rixos.jpg" alt="Отель" />
-              <div class="card-icons">
-                <button class="icon-button">
-                  <i class="fas fa-heart"></i>
-                </button>
-                <button class="icon-button">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-content">
               <h3>Rixos Downtown 5 ★</h3>
               <p class="location">Турция , Анталия</p>
               <p class="rating">
@@ -307,212 +601,7 @@
 
           <div class="tour-card">
             <div class="card-image">
-              <img src="images/rixos.jpg" alt="Отель" />
-              <div class="card-icons">
-                <button class="icon-button">
-                  <i class="fas fa-heart"></i>
-                </button>
-                <button class="icon-button">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-content">
-              <h3>Rixos Downtown 5 ★</h3>
-              <p class="location">Турция , Анталия</p>
-              <p class="rating">
-                <span class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </span>
-                <span class="reviews"><b>(4 отзывов)</b></span>
-              </p>
-              <p class="details">
-                с 21.04 по 27.04 (5 ночей) | выезд из Алматы
-              </p>
-              <p class="food">🍽️ Все включено</p>
-              <p class="price">1 094 981 ₸</p>
-              <button class="details-button">Подробнее</button>
-            </div>
-          </div>
-
-          <div class="tour-card">
-            <div class="card-image">
-              <img src="images/rixos.jpg" alt="Отель" />
-              <div class="card-icons">
-                <button class="icon-button">
-                  <i class="fas fa-heart"></i>
-                </button>
-                <button class="icon-button">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-content">
-              <h3>Rixos Downtown 5 ★</h3>
-              <p class="location">Турция , Анталия</p>
-              <p class="rating">
-                <span class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </span>
-                <span class="reviews"><b>(4 отзывов)</b></span>
-              </p>
-              <p class="details">
-                с 21.04 по 27.04 (5 ночей) | выезд из Алматы
-              </p>
-              <p class="food">🍽️ Все включено</p>
-              <p class="price">1 094 981 ₸</p>
-              <button class="details-button">Подробнее</button>
-            </div>
-          </div>
-
-          <div class="tour-card">
-            <div class="card-image">
-              <img src="images/rixos.jpg" alt="Отель" />
-              <div class="card-icons">
-                <button class="icon-button">
-                  <i class="fas fa-heart"></i>
-                </button>
-                <button class="icon-button">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-content">
-              <h3>Rixos Downtown 5 ★</h3>
-              <p class="location">Турция , Анталия</p>
-              <p class="rating">
-                <span class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </span>
-                <span class="reviews"><b>(4 отзывов)</b></span>
-              </p>
-              <p class="details">
-                с 21.04 по 27.04 (5 ночей) | выезд из Алматы
-              </p>
-              <p class="food">🍽️ Все включено</p>
-              <p class="price">1 094 981 ₸</p>
-              <button class="details-button">Подробнее</button>
-            </div>
-          </div>
-
-          <div class="tour-card">
-            <div class="card-image">
-              <img src="images/rixos.jpg" alt="Отель" />
-              <div class="card-icons">
-                <button class="icon-button">
-                  <i class="fas fa-heart"></i>
-                </button>
-                <button class="icon-button">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-content">
-              <h3>Rixos Downtown 5 ★</h3>
-              <p class="location">Турция , Анталия</p>
-              <p class="rating">
-                <span class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </span>
-                <span class="reviews"><b>(4 отзывов)</b></span>
-              </p>
-              <p class="details">
-                с 21.04 по 27.04 (5 ночей) | выезд из Алматы
-              </p>
-              <p class="food">🍽️ Все включено</p>
-              <p class="price">1 094 981 ₸</p>
-              <button class="details-button">Подробнее</button>
-            </div>
-          </div>
-
-          <div class="tour-card">
-            <div class="card-image">
-              <img src="images/rixos.jpg" alt="Отель" />
-              <div class="card-icons">
-                <button class="icon-button">
-                  <i class="fas fa-heart"></i>
-                </button>
-                <button class="icon-button">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-content">
-              <h3>Rixos Downtown 5 ★</h3>
-              <p class="location">Турция , Анталия</p>
-              <p class="rating">
-                <span class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </span>
-                <span class="reviews"><b>(4 отзывов)</b></span>
-              </p>
-              <p class="details">
-                с 21.04 по 27.04 (5 ночей) | выезд из Алматы
-              </p>
-              <p class="food">🍽️ Все включено</p>
-              <p class="price">1 094 981 ₸</p>
-              <button class="details-button">Подробнее</button>
-            </div>
-          </div>
-
-          <div class="tour-card">
-            <div class="card-image">
-              <img src="images/rixos.jpg" alt="Отель" />
-              <span class="recommended">Рекомендовано</span>
-              <div class="card-icons">
-                <button class="icon-button">
-                  <i class="fas fa-heart"></i>
-                </button>
-                <button class="icon-button">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-content">
-              <h3>Rixos Downtown 5 ★</h3>
-              <p class="location">Турция , Анталия</p>
-              <p class="rating">
-                <span class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </span>
-                <span class="reviews"><b>(4 отзывов)</b></span>
-              </p>
-              <p class="details">
-                с 21.04 по 27.04 (5 ночей) | выезд из Алматы
-              </p>
-              <p class="food">🍽️ Все включено</p>
-              <p class="price">1 094 981 ₸</p>
-              <button class="details-button">Подробнее</button>
-            </div>
-          </div>
-
-          <div class="tour-card">
-            <div class="card-image">
-              <img src="images/baron.jpg" alt="Отель" />
+              <img src="{{ url_for('static', filename='images/baron.jpg') }}" alt="Отель" />
               <span class="recommended">Рекомендовано</span>
               <div class="card-icons">
                 <button class="icon-button">
@@ -565,7 +654,7 @@
     <section class="booking">
       <div class="booking-container">
         <div class="booking-image">
-          <img src="images/beach.jpg" alt="Отдых на пляже" />
+          <img src="{{ url_for('static', filename='images/beach.jpg') }}" alt="Отдых на пляже" />
         </div>
         <div class="booking-text">
           <h2>Хотите подобрать тур быстро<br />и по самой выгодной цене?</h2>
@@ -694,6 +783,47 @@
         </tr>
       </table>
     </div>
+
+    <!--<section class="reviews-section">
+      <h2>Отзывы клиентов</h2>
+      <div class="reviews-slider">
+          <div class="review-card">
+              <img src="/static/images/user1.jpg" alt="Анна">
+              <h3>Анна</h3>
+              <p>Отличный сервис, путешествие прошло идеально!</p>
+              <div class="stars">
+                  ⭐⭐⭐⭐⭐
+              </div>
+          </div>
+          <div class="review-card">
+              <img src="/static/images/user2.jpg" alt="Дмитрий">
+              <h3>Дмитрий</h3>
+              <p>Все понравилось, но были небольшие задержки.</p>
+              <div class="stars">
+                  ⭐⭐⭐⭐☆
+              </div>
+          </div>
+          <div class="review-card">
+              <img src="/static/images/user3.jpg" alt="Екатерина">
+              <h3>Екатерина</h3>
+              <p>Прекрасный отдых! Обязательно обращусь снова.</p>
+              <div class="stars">
+                  ⭐⭐⭐⭐⭐
+              </div>
+          </div>
+      </div>
+      <button class="prev-button">&#10094;</button>
+      <button class="next-button">&#10095;</button>
+  
+      
+      <div class="review-form">
+          <h3>Оставьте свой отзыв</h3>
+          <input type="text" id="review-name" placeholder="Ваше имя">
+          <textarea id="review-message" placeholder="Ваш отзыв"></textarea>
+          <button id="submit-review">Отправить</button>
+      </div>
+  </section> -->
+  
 
     <section id="contacts" class="contacts">
       <div class="container">
@@ -1007,21 +1137,23 @@
       
     </div>
 
-    <script src="scripts/login-container.js"></script>
-    <script src="scripts/tour-card.js"></script>
-    <script src="scripts/step.js"></script>
-    <script src="scripts/advantage-item.js"></script>
-    <script src="scripts/contacts-item.js"></script>
-    <script src="scripts/payment-icons.js"></script>
-    <script src="scripts/footer-items.js"></script>
-    <script src="scripts/tour-card-slider.js"></script>
-    <script src="scripts/show_hide-password.js"></script>
-    <script src="scripts/faq.js"></script>
-    <script src="scripts/about.js"></script>
-    <script src="scripts/booking.js"></script>
-    <script src="scripts/showContacts.js"></script>
-    <script src="scripts/faq-anim.js"></script>
-    <script src="scripts/search-item.js"></script>
-    <script src="scripts/search-system.js"></script>
+    <script src="/static/scripts/login-container.js"></script>
+    <script src="/static/scripts/tour-card.js"></script>
+    <script src="/static/scripts/step.js"></script>
+    <script src="/static/scripts/advantage-item.js"></script>
+    <script src="/static/scripts/contacts-item.js"></script>
+    <script src="/static/scripts/payment-icons.js"></script>
+    <script src="/static/scripts/footer-items.js"></script>
+    <script src="/static/scripts/tour-card-slider.js"></script>
+    <script src="/static/scripts/show_hide-password.js"></script>
+    <script src="/static/scripts/faq.js"></script>
+    <script src="/static/scripts/about.js"></script>
+    <script src="/static/scripts/booking.js"></script>
+    <script src="/static/scripts/showContacts.js"></script>
+    <script src="/static/scripts/faq-anim.js"></script>
+    <script src="/static/scripts/search-item.js"></script>
+    <script src="/static/scripts/search-system.js"></script>
+    <script src="/static/scripts/theme-switcher.js"></script>
+    <script src="/static/scripts/agency.js"></script>
   </body>
 </html>
