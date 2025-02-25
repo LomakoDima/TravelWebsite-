@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+    
   </head>
   <body>
     <header>
@@ -21,6 +22,7 @@
               <li><a href="#home" class="nav-item">Главная</a></li>
               <li><a href="#about" class="nav-item">О нас</a></li>
               <li><a href="#cards-container" class="nav-item">Туры</a></li>
+              <li><a href="#blog" class="nav-item">Блог</a></li>
               <li><a href="#faq" class="nav-item">FAQ</a></li>
               <li><a href="#contacts" class="nav-item">Контакты</a></li>
               <li><a href="#" id="login-button" class="nav-item">Вход</a></li>
@@ -67,6 +69,8 @@
         <a href="#" class="info">Подробнее</a>
       </div>
     </section>
+
+    
 
     <div class="search-panel">
       <div class="search-item" data-dropdown="dropdown-1">
@@ -117,10 +121,15 @@
         <div id="dropdown-3" class="dropdown-menu">
           <div class="dropdown-section">
             <label>Дата вылета: <input type="date" /></label><br />
-            <label>Длительность: 
-              <input type="number" min="1" placeholder="мин" /> -
-              <input type="number" min="1" placeholder="макс" /> ночей
-            </label>
+            <div class="form-field">
+              <label>Длительность:</label>
+              <div class="duration-inputs">
+                <input type="number" min="1" placeholder="мин" />
+                <span>–</span>
+                <input type="number" min="1" placeholder="макс" />
+                <span>ночей</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -146,10 +155,6 @@
       
       <button class="search-button">ИСКАТЬ</button>
     </div>
-    
-    
-
-
 
     <section id="about" class="about">
       <div class="about-container">
@@ -208,8 +213,6 @@
           <p>Сегодня заказали туры</p>
           <p><span id="country">ОАЭ</span> <span id="amount">519 897</span> ₸</p>
       </div>
-      
-          
       </div>
   </section>
 
@@ -254,38 +257,37 @@
 
     <section class="tour-collections">
       <h2>Подборки туров от экспертов «ТурГид»</h2>
-  
-      
+    
       <button class="slider-button left" onclick="prevSlide()">&lt;</button>
-  
+    
       <div class="tour-slider">
-          <div class="tour-item">
-              <img src="/static/images/nirvana.jpg" alt="Nirvana Hotels">
-              <p>Отели Nirvana — новый формат люксового отдыха!</p>
-          </div>
-          <div class="tour-item">
-              <img src="/static/images/crystal.jpg" alt="Crystal Hotels">
-              <p>Отели Crystal — гарантия лучшего соотношения цена-качество!</p>
-          </div>
-          <div class="tour-item changing-card">
-              <img src="/static/images/rixoshot.jpg" alt="Rixos Hotels">
-              <p>Отели сети Rixos с концепцией «все включено» в ОАЭ</p>
-          </div>
-          <div class="tour-item special-offer">
-              <img src="/static/images/rixosTurkey.jpg" alt="Rixos Turkey">
-              <div class="offer-label">Акция раннего бронирования -15%</div>
-              <p>Rixos Turkey — тот самый лучший отдых!</p>
-          </div>
+        <div class="tour-item">
+          <img src="/static/images/nirvana.jpg" alt="Nirvana Hotels">
+          <p>Отели Nirvana — новый формат люксового отдыха!</p>
+        </div>
+        <div class="tour-item">
+          <img src="/static/images/crystal.jpg" alt="Crystal Hotels">
+          <p>Отели Crystal — гарантия лучшего соотношения цена-качество!</p>
+        </div>
+        <div class="tour-item changing-card">
+          <img src="/static/images/rixoshot.jpg" alt="Rixos Hotels">
+          <p>Отели сети Rixos с концепцией «все включено» в ОАЭ</p>
+        </div>
+        <div class="tour-item special-offer">
+          <img src="/static/images/rixosTurkey.jpg" alt="Rixos Turkey">
+          <div class="offer-label">Акция раннего бронирования -15%</div>
+          <p>Rixos Turkey — тот самый лучший отдых!</p>
+        </div>
       </div>
-  
-      
+    
       <button class="slider-button right" onclick="nextSlide()">&gt;</button>
-  
+    
       <button class="view-all">Смотреть все подборки</button>
-  </section>
+    </section>
+    
   
 
-    <div id="cards-container" class="cards-container">
+    <section id="cards-container" class="cards-container">
       <h1>Популярные туры</h1>
       <div class="slider-container">
         <div class="slider">
@@ -649,7 +651,62 @@
           <span class="indicator-item"></span>
         </div>
       </div>
+    </section>
+
+   
+   <button id="chatbot-icon" class="chatbot-icon">
+    <i class="fa fa-comment"></i>
+  </button>
+  
+  
+  <div id="chatbot-widget" class="chatbot-widget">
+    <div class="chatbot-header">
+      <span>Служба поддержки</span>
+      <button id="chatbot-close" class="chatbot-close">&times;</button>
     </div>
+    <div class="chatbot-body">
+      <div class="chatbot-messages">
+        <div class="chatbot-message bot">👋 Привет! Чем могу помочь?</div>
+      </div>
+      <div class="chatbot-input">
+        <textarea id="chatbot-textarea" placeholder="Введите ваш вопрос..."></textarea>
+        <button class="chatbot-send"><i class="fa fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+    <section id="blog" class="blog">
+      <div class="blog-container">
+        <h2>Интересные статьи о путешествиях</h2>
+        
+        <div class="articles">
+  
+          <article class="blog-post">
+            <img src="/static/images/palm.jpg" alt="Мальдивы">
+            <h3>Райский отдых на Мальдивах: лучшие отели и пляжи</h3>
+            <p>Как выбрать идеальное место для отдыха? Наши советы по отелям и экскурсиям на Мальдивах...</p>
+            <a href="#">Читать далее</a>
+          </article>
+    
+          <article class="blog-post">
+            <img src="/static/images/paris.jpg" alt="Париж">
+            <h3>Что посмотреть в Париже за 3 дня?</h3>
+            <p>Маршрут для тех, кто хочет увидеть все самое главное в столице Франции...</p>
+            <a href="#">Читать далее</a>
+          </article>
+    
+          <article class="blog-post">
+            <img src="/static/images/thai.jpg" alt="Таиланд">
+            <h3>Таиланд: рай для туристов</h3>
+            <p>Где отдохнуть, какие блюда попробовать и как сэкономить в Таиланде?</p>
+            <a href="#">Читать далее</a>
+          </article>
+        </div>
+        
+        <button class="view-all">Читать больше</button>
+      </div>
+    </section>
+    
 
     <section class="booking">
       <div class="booking-container">
@@ -1089,53 +1146,117 @@
 
     <div id="overlay" class="overlay"></div>
 
-    <div id="login-form-container" class="login-form-container">
-      <span class="close-btn" id="close-btn">&times;</span>
-      <form class="form">
-        <div class="flex-column">
-          <label>Email </label>
-        </div>
-        <div class="inputForm">
-          <i class="fas fa-envelope"></i>
-          <input type="text" class="input" placeholder="Enter your Email" />
-        </div>
-
-        <div class="flex-column">
-          <label>Password </label>
-        </div>
-        <div class="inputForm">
-          <i class="fas fa-lock"></i>
-          <input
-            type="password"
-            class="input"
-            placeholder="Enter your Password"
-          />
-          <i class="fas fa-eye"></i>
-        </div>
-
-        <div class="flex-row">
-          <div>
-            <input type="checkbox" />
-            <label>Remember me </label>
-          </div>
-          <p class="forgot-password"><a href="#">Forgot your password?</a></p>
-        </div>
-        <button class="button-submit">Log In</button>
-        <p class="signup-text">New here? <a href="#">Create an account</a></p>
-        <p class="or-text">Or continue with</p>
-
-        <div class="auth-buttons">
-          <button class="btn google">
-            <i class="fa-brands fa-google"></i> Google
-          </button>
-          <button class="btn apple">
-            <i class="fa-brands fa-apple"></i> Apple
-          </button>
-        </div>
-      </form>
-
-      
+    
+<div id="login-form-container" class="login-form-container">
+  <span class="close-btn" id="close-login">&times;</span>
+  <form class="form">
+    <div class="flex-column">
+      <label>Email</label>
     </div>
+    <div class="inputForm">
+      <i class="fas fa-envelope"></i>
+      <input type="text" class="input" placeholder="Enter your Email" />
+    </div>
+
+    <div class="flex-column">
+      <label>Password</label>
+    </div>
+    <div class="inputForm">
+      <i class="fas fa-lock"></i>
+      <input type="password" class="input" placeholder="Enter your Password" />
+      <i class="fas fa-eye"></i>
+    </div>
+
+    <div class="flex-row">
+      <div>
+        <input type="checkbox" />
+        <label>Remember me</label>
+      </div>
+      <p class="forgot-password"><a href="#">Forgot your password?</a></p>
+    </div>
+
+    <button class="button-submit">Log In</button>
+
+    
+    <p class="signup-text">
+      New here? <a href="#" id="open-register">Create an account</a>
+    </p>
+
+    <p class="or-text">Or continue with</p>
+
+    <div class="auth-buttons">
+      <button class="btn google">
+        <i class="fa-brands fa-google"></i> Google
+      </button>
+      <button class="btn apple">
+        <i class="fa-brands fa-apple"></i> Apple
+      </button>
+    </div>
+  </form>
+</div>
+
+
+<div id="register-form-container" class="login-form-container">
+  <span class="close-btn" id="close-register">&times;</span>
+  <form class="form">
+    
+    <div class="flex-row">
+  <div class="input-container">
+    <label for="name">Name</label>
+    <div class="inputForm">
+      <i class="fas fa-user"></i>
+      <input type="text" id="name" class="input" placeholder="Your Name" />
+    </div>
+  </div>
+  <div class="input-container">
+    <label for="surname">Surname</label>
+    <div class="inputForm">
+      <i class="fas fa-user"></i>
+      <input type="text" id="surname" class="input" placeholder="Your Surname" />
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    <div class="flex-column">
+      <label>Email</label>
+    </div>
+    <div class="inputForm">
+      <i class="fas fa-envelope"></i>
+      <input type="email" class="input" placeholder="Enter your Email" />
+    </div>
+
+    <div class="flex-column">
+      <label>Password</label>
+    </div>
+    <div class="inputForm">
+      <i class="fas fa-lock"></i>
+      <input type="password" class="input" placeholder="Create Password" />
+      <i class="fas fa-eye"></i>
+    </div>
+
+    <div class="flex-column">
+      <label>Confirm Password</label>
+    </div>
+    <div class="inputForm">
+      <i class="fas fa-lock"></i>
+      <input type="password" class="input" placeholder="Confirm Password" />
+      <i class="fas fa-eye"></i>
+    </div>
+
+    <button class="button-submit">Sign Up</button>
+
+    <div class="register-extra">
+      <p class="back-to-login">Already have an account? <a href="#" id="back-to-login">Log In</a></p>
+      <p class="privacy-note">By signing up, you agree to our <a href="#">Terms & Privacy Policy</a>.</p>
+    </div>
+  </form>
+</div>
+
 
     <script src="/static/scripts/login-container.js"></script>
     <script src="/static/scripts/tour-card.js"></script>
@@ -1155,5 +1276,6 @@
     <script src="/static/scripts/search-system.js"></script>
     <script src="/static/scripts/theme-switcher.js"></script>
     <script src="/static/scripts/agency.js"></script>
+    <script src="/static/scripts/chat.js"></script>
   </body>
 </html>

@@ -5,17 +5,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contact-form");
   const toast = document.getElementById("toast");
 
-  // Убираем модальное окно при загрузке страницы
+ 
   modal.classList.remove("show");
   modal.style.display = "none";
 
-  // Открытие модального окна
+  
   openBtn.addEventListener("click", function () {
     modal.classList.add("show");
     modal.style.display = "flex";
   });
 
-  // Закрытие модального окна
+  
   closeBtn.addEventListener("click", function () {
     modal.classList.remove("show");
     setTimeout(() => {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   });
 
-  // Закрытие по клику вне модального окна
+  
   window.addEventListener("click", function (event) {
     if (event.target === modal) {
       modal.classList.remove("show");
@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Отправка формы
+  
   form.addEventListener("submit", function (event) {
-    event.preventDefault(); // Останавливаем стандартное поведение формы
+    event.preventDefault(); 
 
     const formData = new FormData(form);
 
