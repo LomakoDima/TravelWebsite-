@@ -179,3 +179,52 @@ overlay.addEventListener("click", closeModals);
 
 // document.getElementById("login-button").addEventListener("click", openLogin);
 
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("booking-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      
+      let formData = new FormData(this);
+      fetch("/book", {
+          method: "POST",
+          body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+          alert(data.message);
+          if (data.status === "success") {
+              document.getElementById("booking-form").reset();
+          }
+      })
+      .catch(error => console.error("Ошибка:", error));
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  /* Анимация карточек при прокрутке */
+  const elements = document.querySelectorAll(".review-card, .blog-post");
+  function reveal() {
+    elements.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+        el.classList.add("visible");
+      }
+    });
+  }
+  window.addEventListener("scroll", reveal);
+  reveal();
+
+  /* Обработчик звездного рейтинга */
+  const stars = document.querySelectorAll(".star");
+  stars.forEach(star => {
+    star.addEventListener("click", function () {
+      stars.forEach(s => s.classList.remove("active"));
+      this.classList.add("active");
+      let prev = this.previousElementSibling;
+      while (prev) {
+        prev.classList.add("active");
+        prev = prev.previousElementSibling;
+      }
+    });
+  });
+});
+
+

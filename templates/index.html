@@ -4,6 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="туры, путешествия, отдых, бронирование" />
+    <meta property="og:image" content="/static/images/island1.jpg" />
     <title>Туристическое агентство</title>
     <link rel="stylesheet" href="/static/css/style.css" />
     <link
@@ -255,35 +257,7 @@
       </div>
     </section>
 
-    <section class="tour-collections">
-      <h2>Подборки туров от экспертов «ТурГид»</h2>
-    
-      <button class="slider-button left" onclick="prevSlide()">&lt;</button>
-    
-      <div class="tour-slider">
-        <div class="tour-item">
-          <img src="/static/images/nirvana.jpg" alt="Nirvana Hotels">
-          <p>Отели Nirvana — новый формат люксового отдыха!</p>
-        </div>
-        <div class="tour-item">
-          <img src="/static/images/crystal.jpg" alt="Crystal Hotels">
-          <p>Отели Crystal — гарантия лучшего соотношения цена-качество!</p>
-        </div>
-        <div class="tour-item changing-card">
-          <img src="/static/images/rixoshot.jpg" alt="Rixos Hotels">
-          <p>Отели сети Rixos с концепцией «все включено» в ОАЭ</p>
-        </div>
-        <div class="tour-item special-offer">
-          <img src="/static/images/rixosTurkey.jpg" alt="Rixos Turkey">
-          <div class="offer-label">Акция раннего бронирования -15%</div>
-          <p>Rixos Turkey — тот самый лучший отдых!</p>
-        </div>
-      </div>
-    
-      <button class="slider-button right" onclick="nextSlide()">&gt;</button>
-    
-      <button class="view-all">Смотреть все подборки</button>
-    </section>
+   
     
   
 
@@ -708,7 +682,7 @@
     </section>
     
 
-    <section class="booking">
+    <section  class="booking">
       <div class="booking-container">
         <div class="booking-image">
           <img src="{{ url_for('static', filename='images/beach.jpg') }}" alt="Отдых на пляже" />
@@ -716,14 +690,14 @@
         <div class="booking-text">
           <h2>Хотите подобрать тур быстро<br />и по самой выгодной цене?</h2>
           <p>Оставьте заявку, и вам поможет один из наших экспертов!</p>
-          <form class="booking-form">
+          <form id="booking-form" class="booking-form">
             <div class="input-group">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Ваше имя" />
+              <input type="text" name="name" placeholder="Ваше имя" />
             </div>
             <div class="input-group">
               <i class="fas fa-phone"></i>
-              <input type="tel" placeholder="Телефон" />
+              <input type="tel" name="phone" placeholder="Телефон" />
             </div>
             <button type="submit" class="booking-btn">Оставить заявку</button>
           </form>
@@ -765,81 +739,95 @@
       </div>
     </section>
 
-    <div class="reviews-section">
-      <h2>Отзывы клиентов</h2>
-      <table>
-        <tr>
-          <th>Имя</th>
-          <th>Отзыв</th>
-          <th>Рейтинг</th>
-        </tr>
-        <tr>
-          <td>Анна</td>
-          <td>Отличный сервис, путешествие прошло идеально!</td>
-          <td>
-            <span class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>Дмитрий</td>
-          <td>Все понравилось, но были небольшие задержки.</td>
-          <td>
-            <span class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>Екатерина</td>
-          <td>Прекрасный отдых! Обязательно обращусь снова.</td>
-          <td>
-            <span class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>Игорь</td>
-          <td>Хороший отель, но экскурсии можно сделать лучше.</td>
-          <td>
-            <span class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>Мария</td>
-          <td>Все супер, персонал очень дружелюбный!</td>
-          <td>
-            <span class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </span>
-          </td>
-        </tr>
-      </table>
-    </div>
+    <section id="reviews" class="reviewsc">
+      <h2>Отзывы наших клиентов</h2>
+      <div class="reviews-container">
+        <div class="review-card">
+          <div class="review-header">
+            <img src="/static/images/user2.jpg" alt="Аватар пользователя" class="review-avatar">
+            <div>
+              <h3>Анна Петрова</h3>
+              <p class="review-location">Москва, Россия</p>
+            </div>
+          </div>
+          <p class="review-text">Отличный сервис! Подобрали тур за пару часов, всё прошло идеально. Спасибо!</p>
+          <span class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </span>
+        </div>
+    
+        <div class="review-card">
+          <div class="review-header">
+            <img src="/static/images/user1.jpg" alt="Аватар пользователя" class="review-avatar">
+            <div>
+              <h3>Игорь Смирнов</h3>
+              <p class="review-location">Санкт-Петербург, Россия</p>
+            </div>
+          </div>
+          <p class="review-text">Путешествие в Таиланд превзошло все ожидания! Организация на высоте.</p>
+          <span class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </span>
+        </div>
+    
+        <div class="review-card">
+          <div class="review-header">
+            <img src="/static/images/user3.jpg" alt="Аватар пользователя" class="review-avatar">
+            <div>
+              <h3>Мария Ковалева</h3>
+              <p class="review-location">Екатеринбург, Россия</p>
+            </div>
+          </div>
+          <p class="review-text">Очень довольны поездкой! Отличная поддержка на всех этапах.</p>
+          <span class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-section">
+      <div class="reviews-container">
+        <!-- Здесь динамически появятся отзывы -->
+      </div>
+    
+      <h2 style="color: #ff8c00;">Оставьте свой отзыв</h2>
+      <form class="review-form">
+        <input type="text" id="name" placeholder="Введите ваше имя..." required>
+        <input type="text" id="city" placeholder="Москва, Россия" required>
+    
+       
+        <textarea id="review-text" rows="4" placeholder="Напишите свой отзыв..." required></textarea>
+    
+        <div class="star-rating">
+          <i class="fa fa-star star" data-value="1"></i>
+          <i class="fa fa-star star" data-value="2"></i>
+          <i class="fa fa-star star" data-value="3"></i>
+          <i class="fa fa-star star" data-value="4"></i>
+          <i class="fa fa-star star" data-value="5"></i>
+        </div>
+    
+        <button type="submit" class="btn-submit">Отправить</button>
+      </form>
+    </section>
+    
+    
+    
+    
+
+    
 
     <!--<section class="reviews-section">
       <h2>Отзывы клиентов</h2>
@@ -1277,5 +1265,6 @@
     <script src="/static/scripts/theme-switcher.js"></script>
     <script src="/static/scripts/agency.js"></script>
     <script src="/static/scripts/chat.js"></script>
+    <script src="/static/scripts/review.js"></script>
   </body>
 </html>
