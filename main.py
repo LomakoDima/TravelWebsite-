@@ -14,10 +14,10 @@ SMTP_PORT = 587
 EMAIL_LOGIN = "почта"  
 EMAIL_PASSWORD = "пароль"  
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Получаем путь к папке с файлом скрипта
-REVIEWS_FILE = os.path.join(BASE_DIR, "data", "reviews.txt")  # Сохраняем в папке "data"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  
+REVIEWS_FILE = os.path.join(BASE_DIR, "data", "reviews.txt")  
 
-# Убедимся, что папка "data" существует
+
 if not os.path.exists(os.path.join(BASE_DIR, "data")):
     os.makedirs(os.path.join(BASE_DIR, "data"))
 
@@ -63,7 +63,7 @@ def book():
         if not all([name, phone]):
             return jsonify({"status": "error", "message": "Все поля обязательны!"}), 400
 
-        # Здесь можно добавить сохранение в базу данных или файл
+       
         with open("bookings.txt", "a", encoding="utf-8") as f:
             f.write(f"{name}, {phone}\n")
 
@@ -82,7 +82,7 @@ def submit_review():
         if not all([name, review_text, rating]):
             return jsonify({"status": "error", "message": "Все поля обязательны!"}), 400
 
-        # Сохранение в файл
+        
         with open(REVIEWS_FILE, "a", encoding="utf-8") as f:
             f.write(f"{name}|{rating}|{review_text}\n")
 
