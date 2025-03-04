@@ -112,19 +112,18 @@ const chatbotIcon = document.getElementById("chatbot-icon");
 const chatbotWidget = document.getElementById("chatbot-widget");
 const chatbotClose = document.getElementById("chatbot-close");
 
-
 chatbotIcon.addEventListener("click", () => {
   chatbotWidget.style.display = "flex";
 });
-
 
 chatbotClose.addEventListener("click", () => {
   chatbotWidget.style.display = "none";
 });
 
-
 const loginFormContainer = document.getElementById("login-form-container");
-const registerFormContainer = document.getElementById("register-form-container");
+const registerFormContainer = document.getElementById(
+  "register-form-container"
+);
 const overlay = document.getElementById("overlay");
 
 const openRegisterLink = document.getElementById("open-register");
@@ -134,7 +133,6 @@ const closeLoginBtn = document.getElementById("close-login");
 const closeRegisterBtn = document.getElementById("close-register");
 
 const body = document.body;
-
 
 function openModal(modal) {
   modal.style.display = "block";
@@ -146,19 +144,15 @@ function closeModals() {
   registerFormContainer.style.display = "none";
   overlay.style.display = "none";
   body.classList.remove("no-scroll");
-  
 }
-
 
 function openLogin() {
   openModal(loginFormContainer);
 }
 
-
 function openRegister() {
   openModal(registerFormContainer);
 }
-
 
 openRegisterLink.addEventListener("click", (e) => {
   e.preventDefault();
@@ -173,37 +167,37 @@ backToLoginLink.addEventListener("click", (e) => {
 closeLoginBtn.addEventListener("click", closeModals);
 closeRegisterBtn.addEventListener("click", closeModals);
 
-
 overlay.addEventListener("click", closeModals);
-
 
 // document.getElementById("login-button").addEventListener("click", openLogin);
 
 document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("booking-form").addEventListener("submit", function (event) {
+  document
+    .getElementById("booking-form")
+    .addEventListener("submit", function (event) {
       event.preventDefault();
-      
+
       let formData = new FormData(this);
       fetch("/book", {
-          method: "POST",
-          body: formData
+        method: "POST",
+        body: formData,
       })
-      .then(response => response.json())
-      .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
           alert(data.message);
           if (data.status === "success") {
-              document.getElementById("booking-form").reset();
+            document.getElementById("booking-form").reset();
           }
-      })
-      .catch(error => console.error("Ошибка:", error));
-  });
+        })
+        .catch((error) => console.error("Ошибка:", error));
+    });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
   /* Анимация карточек при прокрутке */
   const elements = document.querySelectorAll(".review-card, .blog-post");
   function reveal() {
-    elements.forEach(el => {
+    elements.forEach((el) => {
       if (el.getBoundingClientRect().top < window.innerHeight - 50) {
         el.classList.add("visible");
       }
@@ -214,9 +208,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* Обработчик звездного рейтинга */
   const stars = document.querySelectorAll(".star");
-  stars.forEach(star => {
+  stars.forEach((star) => {
     star.addEventListener("click", function () {
-      stars.forEach(s => s.classList.remove("active"));
+      stars.forEach((s) => s.classList.remove("active"));
       this.classList.add("active");
       let prev = this.previousElementSibling;
       while (prev) {
@@ -227,4 +221,54 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+const input = document.querySelector("#register-email");
+emailIcon = document.querySelector(".email-icon");
+input.addEventListener("keyup", () => {
+  let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (input.value === "") {
+    emailIcon.classList.replace("uil-check-circle", "uil-envelope");
+    return (emailIcon.style.color = "#b4b4b4");
+  }
+  if (input.value.match(pattern)) {
+    emailIcon.classList.replace("uil-envelope", "uil-check-circle");
+    return (emailIcon.style.color = "#4bb543");
+  }
+  emailIcon.classList.replace("uil-check-circle", "uil-envelope");
+  emailIcon.style.color = "#de0611";
+});
 
+
+const passInp = document.getElementById('passInd'),
+      indicator = document.querySelector('.indicator')
+      iconText = document.querySelector('.icon-text'),
+      pas = document.querySelector('.pas');
+
+let alphabet = /[a-zA-Z]/,
+    numbers = /[0-9]/,
+    schars = /[!, @, #, $, %, ^, &, *, ?, _, (,),-,+,=,~]/;
+
+passInp.addEventListener('keyup', () => {
+  indicator.classList.add('active')
+
+  let val = passInp.value;
+
+  if  (val.match(alphabet) || val.match(numbers) || val.match(schars)) {
+    pas.textContent = 'Password is weak';
+    iconText.style.color = '#FF6333';
+  }
+
+  if (val.match(alphabet) && val.match(numbers) && val.length >= 6) {
+    pas.textContent = 'Password is medium';
+    iconText.style.color = '#CC8500'
+  }
+
+  if (val.match(alphabet) && val.match(numbers) && val.match(schars) && val.length >= 6) {
+    pas.textContent = 'Password is strong';
+    iconText.style.color = '#22c32A';
+  }
+
+  if (val == '') {
+    indicator.classList.remove('active')
+  }
+})
+    

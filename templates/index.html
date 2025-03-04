@@ -12,7 +12,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <style>
+
+    </style>
   </head>
   <body>
     <header>
@@ -110,8 +116,7 @@
           </div>
         </div>
       </div>
-    
-      
+
       <div class="search-item" data-dropdown="dropdown-3">
         <span class="search-label">
           <i class="fa fa-calendar"></i> Дата, длительность
@@ -160,8 +165,9 @@
 
     <section id="about" class="about">
       <div class="about-container">
+        <hr id="hr">
         <h2>О нас</h2>
-        <p>Мы – команда профессионалов, которая более 10 лет помогает людям находить идеальные путешествия.</p>
+        <p><strong>Мы – команда профессионалов</strong>, <u>которая более 10 лет помогает людям находить</u> <br> <i>идеальные путешествия.</i></p>
     
         <h3>Наша история</h3>
         <p>Компания была основана в 2012 году с целью сделать путешествия доступными и комфортными для каждого.</p>
@@ -194,7 +200,17 @@
           </div>
         </div>
       </div>
+      <hr id="hr">
     </section>
+
+    <section id="video-section">
+      <h2>Посмотрите наш видео-обзор тура</h2>
+      <video controls width="100%">
+        <source src="/static/images/beash.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    </section>
+    
 
     <section class="travel-agency">
       <h2>Сеть турагентств "ТурГид"</h2>
@@ -258,6 +274,58 @@
     </section>
 
    
+
+    <section id="travel-info" class="travel-info">
+      <h2 style="color: gold;">Популярные направления</h2>
+    
+      <!-- Таблица -->
+      <table>
+        <thead>
+          <tr>
+            <th>Страна</th>
+            <th>Город</th>
+            <th>Средняя цена</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><font face="Courier" size="4">Турция</font></td>
+            <td>Анталия</td>
+            <td>900 000 ₸</td>
+          </tr>
+          <tr>
+            <td>Таиланд</td>
+            <td>Пхукет</td>
+            <td>1 200 000 ₸</td>
+          </tr>
+          <tr>
+            <td>ОАЭ</td>
+            <td>Дубай</td>
+            <td>1 500 000 ₸</td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <!-- Маркированный список -->
+      <h3>Почему выбирают нас?</h3>
+      <ul>
+        <li>10+ лет опыта в туризме</li>
+        <li>Лучшие цены и скидки</li>
+        <li>Большой выбор туров</li>
+        <li>Персональный подбор предложений</li>
+      </ul>
+    
+      <!-- Нумерованный список -->
+      <h3>Как забронировать тур?</h3>
+      <ol>
+        <li>Выберите страну и отель</li>
+        <li>Заполните заявку</li>
+        <li>Получите консультацию от менеджера</li>
+        <li>Оплатите тур</li>
+        <li>Отправляйтесь в путешествие!</li>
+      </ol>
+    </section>
+    
     
   
 
@@ -270,7 +338,7 @@
               <img src="{{ url_for('static', filename='images/sokha.jpg') }}" alt="Отель" />
               <div class="card-icons">
                 <button class="icon-button">
-                  <i class="fas fa-heart"></i>
+                  <i class="fas fa-heart" style="color: red;"></i>
                 </button>
                 <button class="icon-button">
                   <i class="fas fa-balance-scale"></i>
@@ -295,7 +363,8 @@
               </p>
               <p class="food">🍽️ завтрак</p>
               <p class="price">1 369 074 ₸</p>
-              <a href="{{ url_for('test') }}" class="details-button">Подробнее</a>
+              
+              <button href="#" class="details-button">Подробнее</button>
             </div>
           </div>
 
@@ -304,7 +373,7 @@
                 <img src="{{ url_for('static', filename='images/maikhao.jpg') }}" alt="Отель" />
                 <span class="recommended">Рекомендовано</span>
                 <div class="card-icons">
-                    <button class="icon-button"><i class="fas fa-heart"></i></button>
+                    <button class="icon-button"><i class="fas fa-heart" style="color: red;"></i></button>
                     <button class="icon-button"><i class="fas fa-balance-scale"></i></button>
                 </div>
             </div>
@@ -325,15 +394,11 @@
                 
                 <button class="details-button">Подробнее</button>
                 
-                <!-- Скрытая дополнительная информация -->
-                <div class="full-description hidden">
-                    <p><strong>Описание:</strong> Современный отель с шикарным пляжем, бассейном и ресторанами.</p>
-                    <p><strong>Маршрут:</strong> Астана → Пхукет → Краби → Симиланы</p>
-                    <p><strong>Что включено:</strong> Перелёт, трансфер, отель, завтрак, экскурсии.</p>
-                    <p><strong>Отзывы:</strong> "Очень понравился сервис, чистые номера, море рядом!"</p>
-                </div>
+                
             </div>
         </div>
+
+        
         
 
           <div class="tour-card">
@@ -798,7 +863,7 @@
       </div>
     </section>
 
-    <section class="review-section">
+    <section id="review-section" class="review-section">
       <div class="reviews-container">
         <!-- Здесь динамически появятся отзывы -->
       </div>
@@ -902,7 +967,7 @@
     
         <form id="contact-form">
           <div class="input-group">
-            <input type="text" id="name" name="name" placeholder="Имя" required>
+            <input type="text" id="name1" name="name" placeholder="Имя" required>
           </div>
     
           <div class="input-group">
@@ -1058,15 +1123,15 @@
             <li><a href="#">Туры в рассрочку</a></li>
             <li><a href="#">Визы: Информация</a></li>
             <li><a href="#">Подарочные сертификаты</a></li>
-            <li><a href="#">Блог</a></li>
+            <li><a href="#blog">Блог</a></li>
           </ul>
         </div>
         <div class="footer-column">
           <h3>О компании</h3>
           <ul>
             <li><a href="#about">О нас</a></li>
-            <li><a href="#">Отзывы</a></li>
-            <li><a href="#">Наша команда</a></li>
+            <li><a href="#review-section">Отзывы</a></li>
+            <li><a href="#about">Наша команда</a></li>
             <li><a href="#">Работа у нас</a></li>
             <li><a href="#">Связаться с руководством</a></li>
           </ul>
@@ -1142,8 +1207,8 @@
       <label>Email</label>
     </div>
     <div class="inputForm">
-      <i class="fas fa-envelope"></i>
-      <input type="text" class="input" placeholder="Enter your Email" />
+      <i class="uil uil-envelope email-icon" style="font-size: 22px;"></i>
+      <input type="text" id="register-email" class="input" placeholder="Enter your Email" />
     </div>
 
     <div class="flex-column">
@@ -1151,8 +1216,17 @@
     </div>
     <div class="inputForm">
       <i class="fas fa-lock"></i>
-      <input type="password" class="input" placeholder="Enter your Password" />
+      <input type="password" id="passInd" class="input" placeholder="Enter your Password" />
+      
       <i class="fas fa-eye"></i>
+      
+    </div>
+
+    <div class="indicator">
+      <div class="icon-text">
+        <i class="fas fa-exclamation-circle error-icon"></i>
+        <h6 class="pas">Password is weak</h6>
+      </div>
     </div>
 
     <div class="flex-row">
@@ -1193,7 +1267,7 @@
     <label for="name">Name</label>
     <div class="inputForm">
       <i class="fas fa-user"></i>
-      <input type="text" id="name" class="input" placeholder="Your Name" />
+      <input type="text" id="name2" class="input" placeholder="Your Name" />
     </div>
   </div>
   <div class="input-container">
@@ -1239,8 +1313,8 @@
     <button class="button-submit">Sign Up</button>
 
     <div class="register-extra">
-      <p class="back-to-login">Already have an account? <a href="#" id="back-to-login">Log In</a></p>
-      <p class="privacy-note">By signing up, you agree to our <a href="#">Terms & Privacy Policy</a>.</p>
+      <p class="back-to-login">Already have an <sup style="font-size: 15px;"><b>account?</b></sup> <a href="#" id="back-to-login">Log In</a></p>
+      <p class="privacy-note">By signing up, you agree to our <a href="#"><sub style="font-size: 12px;">Terms & Privacy Policy</sub></a>.</p>
     </div>
   </form>
 </div>
