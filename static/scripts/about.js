@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  /* Анимация карточек при прокрутке */
+  
   const elements = document.querySelectorAll(".review-card, .blog-post");
   function reveal() {
     elements.forEach((el) => {
@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", reveal);
   reveal();
 
-  /* Обработчик звездного рейтинга */
+ 
   const stars = document.querySelectorAll(".star");
   stars.forEach((star) => {
     star.addEventListener("click", function () {

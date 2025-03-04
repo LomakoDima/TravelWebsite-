@@ -2849,7 +2849,7 @@ body.no-scroll {
   gap: 5px;
 }
 
-/* Сообщения */
+
 .chatbot-message {
   background: #fff;
   padding: 8px 12px;
@@ -2876,7 +2876,7 @@ body.no-scroll {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Поле ввода */
+
 .chatbot-input {
   display: flex;
   padding: 10px;
@@ -2978,7 +2978,7 @@ body.no-scroll {
   color: gold;
 }
 
-/* Форма отзыва со звёздами */
+
 .review-section {
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
